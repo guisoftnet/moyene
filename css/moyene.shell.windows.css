@@ -1,0 +1,172 @@
+/* inicio moyene window  */
+.moyene-shell-window {
+  position: absolute;
+  width: 970px;
+  height: 550px;
+  left: 35.5px;
+  top: 50px;
+  display: block;
+  /* z-index: 20; */
+
+}
+
+.moyene-shell-window .start-center {
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.moyene-shell-window-outer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+
+.moyene-shell-window-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.moyene-shell-window-content {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 0 10px 0;
+  -moz-box-shadow: 0 0 10px 0;
+  box-shadow: 0 0 10px 0;
+}
+
+.moyene-shell-window-titlebar {
+  width: 100%;
+  /* ursor: url(base/base/stock/images/grab.cur) 4 4,move; */
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  height: 34px;
+  -webkit-border-radius: 2px 2px 0 0;
+  -moz-border-radius: 2px 2px 0 0;
+  border-radius: 2px 2px 0 0;
+  background: #DCE2E9;
+  -webkit-box-shadow: inset 0 1px 0 rbga(255, 255, 255, .5);
+  -moz-box-shadow: inset 0 1px 0 rbga(255, 255, 255, .5);
+  box-shadow: inset 0 1px 0 rbga(255, 255, 255, .5);
+}
+
+
+.moyene-shell-window-title-button-bar {
+  position: absolute;
+  /* overflow: hidden; */
+  right: 7px;
+  top: 5px;
+
+}
+
+
+.moyene-shell-window-title-button-bar .action-button {
+  height: 15px;
+  width: 15px;
+  display: block;
+  float: right;
+  cursor: pointer;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+.moyene-shell-window-title-button-bar .action-button.minimize {
+  /* background: url(/assets/blue-manjaro/actions/symbolic/list-remove-symbolic.svg); */
+  background-color: green
+}
+
+.moyene-shell-window-title-button-bar .action-button.maximize {
+  /* background: url(/assets/blue-manjaro/actions/symbolic/window-maximize-symbolic.svg); */
+  background-color: #e2e216;
+
+}
+
+
+.moyene-shell-window-title-button-bar .action-button.close {
+  /* background: url(/assets/blue-manjaro/actions/24/window-close.svg); */
+  background-color: red
+}
+
+.moyene-shell-window-title {
+  height: 29px;
+  /* text-align: center; */
+  overflow: hidden;
+  letter-spacing: 1px;
+  line-height: 29px;
+}
+
+.moyene-shell-window-titlebar-icon {
+  width: 28px;
+  height: 28px;
+  float: left;
+  padding: 5px;
+}
+
+.moyene-shell-window-titlebar-text {
+  color: #393836;
+  height: 29px;
+  line-height: 29px;
+  float: left;
+  max-width: 70%;
+  left: 30px;
+  font-size: 13px;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.moyene-shell-window-titlebar-descricao {
+  float: left;
+}
+
+.moyene-shell-window-body {
+  border-top: 1px solid #CCC;
+  position: absolute;
+  background: #e9e9e9;
+  top: 29px;
+  width: 100%;
+  height: 100%;
+}
+
+.moyene-shell-window-body-area {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+.moyene-content-area {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+.moyene-window-hide {
+  display: none;
+}
+
+.moyene-window-show {
+  display: block;
+}
+
+/* fim moyene window */

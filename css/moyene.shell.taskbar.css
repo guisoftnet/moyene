@@ -1,0 +1,147 @@
+/* inicio block taskbar */
+#moyene_shell_block_taskbar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    z-index: 1000000;
+    background: transparent url('../assets/app/repeat_x.png') repeat-x 0 -174px;
+    /* background: transparent; */
+    /* url(../stock/images/repeat_x.png) repeat-x 0 -174px; */
+    -webkit-transition: margin-bottom 1s;
+    -moz-transition: margin-bottom 1s;
+    -o-transition: margin-bottom 1s;
+    transition: margin-bottom 1s;
+    /* 
+        -webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,.18), 1px 2px 5px 0 rgba(0,0,0,.35);
+      box-shadow: 0 0 5px 0 rgba(0,0,0,.18), 1px 2px 5px 0 rgba(0,0,0,.35); */
+}
+
+.moyene-shell-taskbar-menu {
+    /* background: red; */
+    /* left: 0; */
+    bottom: 0;
+    width: 35px;
+    height: 32px;
+    color: #fff;
+    line-height: 35px;
+    font-size: 22px;
+    margin-left: 5px;
+    padding-top: 4px;
+    /* margin-right: auto; */
+
+}
+
+.moyene-shell-taskbar-menu  i {
+  color: #fff;
+}
+
+.moyene-shell-taskbar-container {
+    position: absolute;
+    /* width: 100%; */
+    bottom: 0;
+    left: 50px;
+    height: 35px;
+    background: rgba(0, 0, 0, .5);
+}
+
+.moyene-shell-taskbar-notify-container {
+    position: absolute;
+    line-height: 33px;
+    width: auto;
+    right: 0;
+    bottom: 0;
+    /* overflow: hidden; */
+    /* width: 120px; */
+    /* height: 35px; */
+    background: #1d252c;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+}
+
+.moyene-shell-taskbar-notify-icon {
+    min-width: 26px;
+    max-width: 58px;
+    /* height: 22px; */
+    color: white;
+    font-size: 18pt;
+    vertical-align: middle;
+    margin-top: 4px;
+    margin-right: 15px;
+    height: 100%;
+}
+
+.moyene-shell-taskbar-notify-container>div {
+    display: inline-block;
+    position: relative;
+    /* height: 22px;
+        line-height: 22px; */
+    vertical-align: middle;
+    /* margin-right: 8px; */
+
+
+}
+
+
+
+#moyene_shell_block_taskbar .dropup {
+    width: 26px;
+    height: 32px;
+}
+
+#moyene_shell_block_taskbar .dropdown-menu {
+
+  transform: translate3d(-326px, -75px, 0px) !important;
+  width: 22rem;
+  padding: 12px 20px;
+  border-radius: 0px;
+
+}
+
+
+
+#ex1Slider .slider-selection {
+    background: rgb(124, 121, 121);
+}
+
+
+
+/* componentes  */
+
+
+
+/* audio volume */
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 5px;   
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%; 
+  background: #fff;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+/* fim componentes */
+
+
+/* fim taskbar */

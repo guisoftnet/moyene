@@ -1,0 +1,60 @@
+
+
+/* todos elementos  */
+
+
+#moyene_shell_block_desktop,
+#moyene_shell_desktops_container,
+.moyene-shell-desktop-container,
+.moyene-shell-desktop-icon,
+.moyene-shell-desktop-icon_img,
+.moyene-shell-desktop-icon_label,
+.moyene-shell-widget,
+.moyene-shell-widget-content,
+.moyene-shell-widget-trasnfer,
+.moyene-shell-tabSelector,
+.moyene-shell-widget-trasnfer-tab,
+.moyene-shell-widget-trasnfer-tab-overview,
+.moyene-shell-widget-trasnfer-tab-icon,
+.moyene-shell-widget-trasnfer-tab-name,
+.moyene-shell-widget-trasnfer-tabView,
+.moyene-shell-widget-trasnfer-up,
+.moyene-shell-window,
+.moyene-shell-window-container,
+.moyene-shell-window-titlebar,
+.moyene-shell-window-titlebar-descricao,
+.moyene-shell-window-titlebar-icon,
+.moyene-shell-window-titlebar-text,
+.moyene-shell-window-toolbar,
+#moyene_shell_block_taskbar,
+.moyene-shell-taskbar-container,
+.moyene-shell-taskbar-menu,
+.moyene-shell-taskbar.notify-container,
+.moyene-shell-taskbar.notify-icon,
+.batery,
+.connect-model,
+.signal,
+.wifi,
+#moyene_shell_block_topnav,
+.moyene-shell-nav,
+.moyene_shell-nav_logo,
+.moyene_shell_nav_search,
+#moyene_shell_nav_services {
+  position: absolute;
+}
+
+
+/* utilitario */
+
+  .moyene-shell-widget-bg {
+    width: 300px;
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 4px;
+  }
+
+
+  .dark-transparent-bg {
+    background-color: rgba(0, 0, 0, .5);
+  }
+
+  /* ./utilitario */

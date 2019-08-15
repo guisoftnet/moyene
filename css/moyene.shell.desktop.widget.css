@@ -1,0 +1,233 @@
+
+      /* inicio widget */
+      .moyene-shell-widget {
+        width: 300px;
+        height: 270px;
+        z-index: 4;
+        display: block;
+        right: 30px;
+        top: 0px;
+        font-family: 'Roboto Condensed', sans-serif;
+
+      }
+  
+  
+      .moyene-shell-widget-content {
+        position: relative;
+        left: 0;
+        top: 25px;
+        width: 100%;
+        z-index: 1;
+        width: 300px;
+        height: 245px;
+      }
+  
+      .moyene-shell-widget-transfer-tabSelector {
+        height: 57px;
+      }
+  
+      .moyene-shell-widget-transfer-tab {
+        float: left;
+      width: 25%;
+      height: 57px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: center;
+      position: relative;
+      }
+      .moyene-shell-widget-transfer-up {
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 9px solid rgba(0, 0, 0, .5);
+        width: 2px;
+        margin-bottom: 0;
+        position: relative;
+        margin-top: 5px;
+        left: 36px;
+      }
+
+      .moyene-shell-widget-transfer-tabView  {
+        position: absolute;
+        display: block;
+        min-height: 160px;
+        max-height: 457px;
+        line-height: 32px;
+        color: #FFF;
+        padding: 15px 12px;
+        z-index: 2;
+        
+      }
+/*   
+      .moyene-shell-widget-transfer-overview {
+      } */
+
+      .moyene-shell-widget-transfer-overview  .diskspace-container{
+        height: 5px;
+        background: gray;
+        width: 90%;
+        margin: 0;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 5px;
+        margin-bottom:  30px;
+      }
+      .moyene-shell-widget-transfer-overview  svg{
+        color: #2274A5;
+     
+      }
+
+      .moyene-shell-widget-transfer-overview  .diskspace-container-fill {
+        height: 5px;
+        background: #F75C03;
+        width: 65%;
+        border-radius: 5px;
+      }
+
+      .moyene-shell-widget-transfer-overview .diskspace-text {
+        font-size: 10pt;
+        font-family: 'Roboto Condensed', sans-serif;
+
+      }
+
+      .moyene-shell-widget-transfer-overview .diskspace-title {
+        margin-left: 5px;
+        font-size: 11pt;
+       font-family: 'Roboto Condensed', sans-serif;
+
+      }
+
+  
+      .moyene-shell-widget-transfer-tab.active {
+        background-color: rgba(0,0,0,.15);
+  }
+      
+      .moyene-shell-widget-transfer-tab-icon {
+        /* background: url(https://img.icons8.com/ios/100/000000/stack.png) no-repeat; */
+      width: 28px;
+      height: 28px;
+      margin-top: 6px;
+      margin-left: auto;
+      margin-right: auto;
+      }
+      
+      .moyene-shell-widget-transfer-tab-icon img {
+        width: 100%;
+      }
+  
+      .moyene-shell-widget-transfer-tab-name {
+        color: #fff;
+      max-width: 60px;
+      font-size: 12px;
+      font-family: 'Roboto Condensed', sans-serif;
+      margin-top: 3px;
+      margin-left: auto;
+      margin-right: auto;
+      }
+  
+      .moyene-shell-widget-transfer-top {
+  
+        width: 108px;
+        height: 21px;
+        background-color: #3EA6F6;
+        background-repeat: repeat-x;
+        background-image: -moz-linear-gradient(-224deg, #44CAFE, #3EA6F6);
+        background-image: -webkit-linear-gradient(-224deg, #44CAFE, #3EA6F6);
+        background-image: -o-linear-gradient(-224deg, #44CAFE, #3EA6F6);
+        background-image: linear-gradient(-224deg, #44CAFE, #3EA6F6);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff44cafe', endColorstr='#ff3ea6f6', GradientType=1);
+        margin-left: 16px;
+      }
+  
+      .moyene-shell-widget-transfer-top p {
+        color: #FFF;
+        font-size: 12px;
+        padding: 2px 14px;
+      }
+
+      .moyene-shell-widget-transfer-overview,
+      .moyene-shell-widget-transfer-devices,
+      .moyene-shell-widget-transfer-uploadmidia,
+      .moyene-shell-widget-transfer-uploadfile {
+        display: none;
+      }
+      
+      .uploadfile-content {
+        /* border: 2px dashed #ccc; */
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5px;
+         padding: 10px;
+      }
+
+      .uploadfile-content span {
+        font-size: 14px;
+      }
+      .uploadfile-text  {
+        margin-bottom: 10px;
+      }
+
+      .uploadfile-text label {
+        margin: 0;
+          margin-left: 15px;
+      }
+
+      .moyene-active {
+        display: block;
+      }
+  
+
+
+      .uploadfile-content label {
+        font-size: 15px;
+        margin: 0;
+        padding: 0;
+        line-height: 15pt;
+        color: #bcbbbb;
+      }
+      /* drag and drop  midia */
+
+
+      #drop-area.highlight {
+        border: 2px dashed #ccc;
+
+      }
+
+      .form-upload {
+        margin-bottom: 10px;
+      }
+
+      #gallery {
+        margin-top: 10px;
+      }
+
+      #gallery img {
+        width: 124px;
+        height: 110px;
+        margin-bottom: 2px;
+        margin-right: 2px;
+        vertical-align: middle;
+        border: 3px solid #aca3a3;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 10px;
+        background: #ccc;
+        cursor: pointer;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      .button:hover {
+        background: #ddd;
+      }
+      #fileElem {
+        display: none;
+      }
+
+      #progress-bar {
+        display: none
+      }
+      /* fim  drag and drop  midia */
+
+    /* fim widget */

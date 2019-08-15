@@ -1,0 +1,16 @@
+{
+  "name": "moyene",
+  "version": "0.0.1",
+  "description": "plataforma p2p",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "p2p",
+    "dweb",
+    "network"
+  ],
+  "author": "dercio geraldo comiche guirruta",
+  "license": "ISC"
+}

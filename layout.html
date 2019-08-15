@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Just+Another+Hand|Merriweather+Sans:700i|Open+Sans|PT+Sans+Narrow|Roboto+Condensed|Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Amaranth&display=swap" rel="stylesheet">
+
+  <style  href="/assets/fa/css/all.min.css" type="text/css"></style>
+  <script src="/assets/fa/js/all.min.js" type="text/javascript"></script>
+  <title>Moyene</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+
+    }
+
+
+    body,
+    div,
+    dl,
+    dt,
+    dd,
+    ul,
+    ol,
+    li,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    pre,
+    code,
+    form,
+    fieldset,
+    legend,
+    input,
+    textarea,
+    p,
+    blockquote,
+    th,
+    td {
+      margin: 0;
+      padding: 0;
+    }
+
+    #moyene_shell_block_desktop,
+    #moyene_shell_desktops_container,
+    .moyene-shell-desktop-container,
+    .moyene-shell-desktop-icon,
+    .moyene-shell-desktop-icon_img,
+    .moyene-shell-desktop-icon_label,
+    .moyene-shell-widget,
+    .moyene-shell-widget-content,
+    .moyene-shell-widget-trasnfer,
+    .moyene-shell-tabSelector,
+    .moyene-shell-widget-trasnfer-tab,
+    .moyene-shell-widget-trasnfer-tab-overview,
+    .moyene-shell-widget-trasnfer-tab-icon,
+    .moyene-shell-widget-trasnfer-tab-name,
+    .moyene-shell-widget-trasnfer-tabView,
+    .moyene-shell-widget-trasnfer-up,
+    .moyene-shell-window,
+    .moyene-shell-window-container,
+    .moyene-shell-window-titlebar,
+    .moyene-shell-window-titlebar-descricao,
+    .moyene-shell-window-titlebar-icon,
+    .moyene-shell-window-titlebar-text,
+    .moyene-shell-window-toolbar,
+    #moyene_shell_block_taskbar,
+    .moyene-shell-taskbar-container,
+    .moyene-shell-taskbar-menu,
+    .moyene-shell-taskbar.notify-container,
+    .moyene-shell-taskbar.notify-icon,
+    .batery,
+    .connect-model,
+    .signal,
+    .wifi,
+    #moyene_shell_block_topnav,
+    .moyene-shell-nav,
+    .moyene_shell-nav_logo,
+    .moyene_shell_nav_search,
+    #moyene_shell_nav_services {
+      position: absolute;
+    }
+
+
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #777;
+      font-family: 'Open Sans', sans-serif;
+      /* font-family: 'Roboto Condensed', sans-serif;
+      font-family: 'PT Sans Narrow', sans-serif;
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+      font-family: 'Bree Serif', serif;
+      font-family: 'Just Another Hand', cursive;
+      font-family: 'Merriweather Sans', sans-serif; */
+    }
+
+    #moyene {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      /* border-radius: 8px 8px 0 8px; */
+      background: url(/assets/wallpaper/kernel-linux.png) no-repeat;
+    background-position: center;
+        }
+
+    /* utilitario */
+    .moyene-x-closed {
+      width: 0
+    }
+
+    .moyene-shell-widget-bg {
+      width: 260px;
+      background-color: rgba(0, 0, 0, .5);
+      border-radius: 4px;
+    }
+
+    .ellipsis {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+      max-width: 310px;
+      overflow: hidden;
+    } 
+    .vl {
+      border-left: 2px solid rgba(0, 0, 0, .25);
+      height: 24px;
+      float: left;
+      width: 4px;
+    }
+
+    .hl {
+      border: 0.02em solid rgba(255, 255, 255, .15);
+      width: 100%;
+      display: block;
+      margin: 15px 0px;
+    }
+
+
+    .moyene-bg {
+      background-color: rgba(0, 0, 0, .5);
+    }
+
+
+    
+ .moyene-hide {
+   display: none !important;
+ }
+
+    /* ./utilitario */
+
+
+
+    /* block desktop  */
+    #moyene_shell_block_desktop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: transparent;
+    }
+
+
+    #moyene_shell_desktops_container {
+      position: absolute;
+      top: 35px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+    }
+
+    #moyene_shell_block_topnav {
+      position: relative;
+      -webkit-transition: margin-top 1s;
+      -moz-transition: margin-top 1s;
+      -o-transition: margin-top 1s;
+      transition: margin-top 1s;
+    }
+
+
+    .moyene-shell-desktop-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+    }
+
+
+    /* Inicio block  nav  */
+    .moyene-shell-nav {
+      position: relative;
+      max-width: 660px;
+      top: 0px;
+      width: 514px;
+      height: 35px;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, .4);
+      -moz-border-radius: 0 0 4px 4px;
+      -webkit-border-radius: 0 0 4px 4px;
+      border-radius: 0 0 4px 4px;
+    }
+
+    #moyene_shell-nav_logo {
+      width: 98px;
+      height: 24px;
+      float: left;
+      margin: 4px 10px;
+      cursor: pointer;
+      background-color: transparent;
+      font-family: 'Amaranth', sans-serif;
+      color: #fff;
+
+    } 
+
+    #moyene_shell_nav_search {
+      float: left;
+      position: relative;
+      z-index: 1;
+      width: 228px;
+      height: 24px;
+      margin: 4px 0px;
+    }
+
+    #moyene_shell_nav_search input {
+      width: 90%;
+    height: 24px;
+    border-radius: 4px;
+    background: white;
+    border: 0;
+    padding-left: 5px;
+     }
+
+
+    #moyene_shell_nav_services {
+      z-index: 1;
+      right: 4px;
+      /* margin-top: 6px; */
+      /* width: 125px; */
+      height: 24px;
+      margin: 4px 10px;
+
+
+    }
+
+    #moyene_shell_nav_services  div.icon {
+      cursor: pointer;
+    background: url(images/widget.png) no-repeat;
+    width: 24px;
+    height: 24px;
+    float: left;
+    margin-right: 6px;
+    color: white;
+    fill:white;
+    }
+
+
+    #moyene_shell_nav_services  div.notification {
+    background: url(/assets/fa/svgs/solid/bell.svg) no-repeat;
+
+    }
+
+
+    
+    
+   
+
+    /*  fim block navegacao */
+
+
+    /* inicio block desktop-container */
+
+    .moyene-shell-desktop-icon {
+
+      position: absolute;
+      /* alterar para absolute */
+      /* position: relative; */
+      /* margin: 8px 10px; */
+      /* fim alterar para absolute */
+
+
+      color: #F1F1F1;
+      font-size: 12px;
+      text-align: center;
+      /* border-radius: 8px; */
+      width: 80px;
+      z-index: 2;
+      cursor: pointer;
+      overflow: hidden;
+      max-height: 106px;
+      -webkit-transition: background-color .25s ease;
+      -moz-transition: background-color .25s ease;
+      -o-transition: background-color .25s ease;
+      transition: background-color .25s ease;
+      -webkit-transform: scale(0);
+      -moz-transform: scale(0);
+      -ms-transform: scale(0);
+      -o-transform: scale(0);
+      transform: scale(0);
+      opacity: 0;
+
+
+      opacity: 1;
+      transform: scale(1, 1);
+      left: 20px;
+      top: 20px;
+      height: 102px;
+      /* background-color: rgba(0, 0, 0, .5) */
+    }
+
+
+    .moyene-shell-desktop-icon:hover {
+
+      border: 1px solid rgba(156, 193, 222, .25);
+      opacity: 1;
+      transform: scale(1, 1);
+      left: 20px;
+      top: 20px;
+      height: 102px;
+      background: rgba(156, 193, 222, .2);
+      /* background-color: rgba(0, 0, 0, .2); */
+      /* background: rgba(0,0,0,.25); */
+
+      /* background-color: rgba(0,0,0,.2); */
+      color: #000;
+    }
+
+    /* .moyene-shell-desktop-icon:hover .moyene-shell-desktop-icon_label .l,
+    .moyene-shell-desktop-icon:hover .moyene-shell-desktop-icon_label .r {
+      /* background: transparent; 
+      }
+      */
+    
+
+    .moyene-shell-desktop-icon_img img {
+      height: 45px;
+      width: 45px;
+      margin-top: 8px;
+      vertical-align: top;
+    }
+
+
+
+    .moyene-shell-desktop-icon .moyene-shell-desktop-icon_label {
+      overflow: visible;
+      color: #fff;
+      height: 20px;
+      text-align: center;
+      cursor: pointer;
+      margin: 10px 0 6px;
+    }
+
+
+    .moyene-shell-desktop-icon_img,
+    .moyene-shell-desktop-icon_label {
+      position: relative;
+    }
+
+
+    .moyene-shell-desktop-icon_label .l {
+      display: inline-block;
+      background: rgba(0, 0, 0, .25);
+      text-indent: 7px;
+      margin: 0;
+      padding: 0;
+      height: 20px;
+      line-height: 20px;
+      overflow: hidden;
+      position: relative;
+      max-width: 70px;
+      vertical-align: middle;
+      white-space: nowrap;
+      word-break: break-all;
+      border-radius: 8px 0 0 8px;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      -webkit-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+    }
+
+    .moyene-shell-desktop-icon_label .r {
+      width: 8px;
+      display: inline-block;
+      background: rgba(0, 0, 0, .25);
+      margin: 0;
+      padding: 0;
+      height: 20px;
+      vertical-align: bottom;
+      border-radius: 0 8px 8px 0;
+      margin-left: -3px;
+    }
+
+    /* inicio block desktop-container */
+
+
+    /* fim block desktop */
+
+    /* inicio block taskbar */
+    #moyene_shell_block_taskbar {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 45px;
+      z-index: 1000000;
+      background: transparent url('../assets/app/repeat_x.png') repeat-x 0 -174px;
+      /* background: transparent; */
+      /* url(../stock/images/repeat_x.png) repeat-x 0 -174px; */
+      -webkit-transition: margin-bottom 1s;
+      -moz-transition: margin-bottom 1s;
+      -o-transition: margin-bottom 1s;
+      transition: margin-bottom 1s;
+/* 
+      -webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,.18), 1px 2px 5px 0 rgba(0,0,0,.35);
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.18), 1px 2px 5px 0 rgba(0,0,0,.35); */
+    }
+
+    .moyene-shell-taskbar-menu {
+      /* background: red; */
+      /* left: 0; */
+      bottom: 0;
+      width: 35px;
+      height: 33px;
+      color: white;
+      line-height: 35px;
+      font-size: 22px;
+      margin-left: 5px;
+      /* margin-right: auto; */
+
+    }
+
+    .moyene-shell-taskbar-container {
+      position: absolute;
+      /* width: 100%; */
+      bottom: 0;
+      left: 50px;
+      height: 35px;
+      background: rgba(0, 0, 0, .5);
+    }
+
+    .moyene-shell-taskbar-notify-container {
+      position: absolute;
+      line-height: 33px;
+      width: auto;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      /* width: 120px; */
+      /* height: 35px; */
+      background: #1d252c;
+    }
+
+    .moyene-shell-taskbar-notify-icon {
+      min-width: 26px;
+      max-width: 58px;
+      height: 22px;
+    }
+
+    .moyene-shell-taskbar-notify-container>div {
+      display: inline-block;
+      position: relative;
+      height: 22px;
+      line-height: 22px;
+      vertical-align: middle;
+      margin-right: 8px;
+
+
+    }
+
+
+    /* fim taskbar */
+
+
+    /* inicio widget */
+    .moyene-shell-widget {
+      width: 300px;
+      height: 270px;
+      z-index: 4;
+      display: block;
+      right: 30px;
+      top: 0px;
+    }
+
+
+    .moyene-shell-widget-content {
+      position: relative;
+      left: 0;
+      top: 25px;
+      width: 100%;
+      z-index: 1;
+      width: 300px;
+      height: 245px;
+    }
+
+    .moyene-shell-widget-transfer-tabSelector {
+      height: 57px;
+    }
+
+    .moyene-shell-widget-transfer-tab {
+      float: left;
+    width: 25%;
+    height: 57px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    }
+    .moyene-shell-widget-transfer-up {
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-bottom: 9px solid rgba(0, 0, 0, .5);
+      width: 2px;
+      margin-bottom: 0;
+      position: relative;
+      margin-top: 5px;
+      left: 36px;
+    }
+
+    .moyene-shell-widget-transfer-overview {
+      position: absolute;
+      display: block;
+      height: 116px;
+      line-height: 32px;
+      color: #FFF;
+      z-index: 2;
+    }
+
+    .moyene-shell-widget-transfer-tab.moyene-shell-widget-transfer-tab-overview.active {
+      background-color: rgba(0,0,0,.15);
+}
+    
+    .moyene-shell-widget-transfer-tab-icon {
+      /* background: url(https://img.icons8.com/ios/100/000000/stack.png) no-repeat; */
+    width: 28px;
+    height: 28px;
+    margin-top: 6px;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    
+    .moyene-shell-widget-transfer-tab-icon img {
+      width: 100%;
+    }
+
+    .moyene-shell-widget-transfer-tab-name {
+      color: #fff;
+    max-width: 60px;
+    font-size: 12px;
+    margin-top: 3px;
+    }
+
+    .moyene-shell-widget-transfer-top {
+
+      width: 108px;
+      height: 21px;
+      background-color: #3EA6F6;
+      background-repeat: repeat-x;
+      background-image: -moz-linear-gradient(-224deg, #44CAFE, #3EA6F6);
+      background-image: -webkit-linear-gradient(-224deg, #44CAFE, #3EA6F6);
+      background-image: -o-linear-gradient(-224deg, #44CAFE, #3EA6F6);
+      background-image: linear-gradient(-224deg, #44CAFE, #3EA6F6);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff44cafe', endColorstr='#ff3ea6f6', GradientType=1);
+      margin-left: 16px;
+    }
+
+    .moyene-shell-widget-transfer-top p {
+      color: #FFF;
+      font-size: 12px;
+      padding: 2px 14px;
+    }
+
+
+
+
+
+
+    /* fim widget */
+
+
+    /* ul {
+      height: 100vh;
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    } */
+
+    /* inicio moyene utilitatio */
+    .moyene-ui-draggable {
+      position: absolute;
+      z-index: 9;
+    }
+    /* fim moyene utilitario */
+
+
+    /* inicio moyene window  */
+    .moyene-shell-window {
+      position: absolute;
+      width: 970px;
+      height: 550px;
+      left: 35.5px;
+      top: 50px;
+      display: block;
+      /* z-index: 20; */
+
+    }
+
+    .moyene-shell-window .start-center {
+     margin: 0;
+     margin-left: auto;
+     margin-right: auto;
+    }
+
+    .moyene-shell-window-outer {
+      position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+    
+
+    .moyene-shell-window-inner {
+      position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    }
+
+    .moyene-shell-window-content {
+      margin: 0;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 0 10px 0;
+    -moz-box-shadow: 0 0 10px 0;
+    box-shadow: 0 0 10px 0;
+    }
+
+    .moyene-shell-window-titlebar {
+      width: 100%;
+      /* ursor: url(base/base/stock/images/grab.cur) 4 4,move; */
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+    height: 34px;
+    -webkit-border-radius: 2px 2px 0 0;
+    -moz-border-radius: 2px 2px 0 0;
+    border-radius: 2px 2px 0 0;
+    background: #DCE2E9;
+    -webkit-box-shadow: inset 0 1px 0 rbga(255,255,255,.5);
+    -moz-box-shadow: inset 0 1px 0 rbga(255,255,255,.5);
+    box-shadow: inset 0 1px 0 rbga(255,255,255,.5);
+    }
+
+
+    .moyene-shell-window-title-button-bar {
+      position: absolute;
+      /* overflow: hidden; */
+      right: 7px;
+      top: 5px;
+
+    }
+
+
+    .moyene-shell-window-title-button-bar .action-button {
+      height: 15px;
+    width: 15px;
+    display: block;
+    float: right;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-left: 5px;
+    }
+
+    .moyene-shell-window-title-button-bar .action-button.minimize {
+      /* background: url(/assets/blue-manjaro/actions/symbolic/list-remove-symbolic.svg); */
+      background-color: green
+
+    }
+    .moyene-shell-window-title-button-bar .action-button.maximize {
+      /* background: url(/assets/blue-manjaro/actions/symbolic/window-maximize-symbolic.svg); */
+      background-color: #e2e216;
+
+    }
+  
+
+    .moyene-shell-window-title-button-bar .action-button.close {
+      /* background: url(/assets/blue-manjaro/actions/24/window-close.svg); */
+      background-color: red
+        
+    }
+     .moyene-shell-window-title {
+      height: 29px;
+    /* text-align: center; */
+    overflow: hidden;
+    letter-spacing: 1px;
+    line-height: 29px;
+     }
+
+     .moyene-shell-window-titlebar-icon {
+      width: 20px;
+    height: 20px;
+    float: left;
+    padding: 5px;
+     }
+
+     .moyene-shell-window-titlebar-text {
+      color: #393836;
+      height: 29px;
+    line-height: 29px;
+    float: left;
+    max-width: 70%;
+    left: 30px;
+    font-size: 13px;
+    font-family: 'PT Sans Narrow', sans-serif;
+     }
+
+     .moyene-shell-window-titlebar-descricao {
+      float: left;
+     }
+
+    .moyene-shell-window-body {
+      border-top: 1px solid #CCC;
+    position: absolute;
+    background: #e9e9e9;
+    top: 29px;
+    width: 100%;
+    height: 100%;
+    }
+    .moyene-shell-window-body-area {
+      position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    }
+    
+
+    .moyene-content-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+.moyene-window-hide {
+  display: none;
+}
+ .moyene-window-show {
+  display: block;
+ }
+
+    /* fim moyene window */
+
+
+    /* inicio moyene launch */
+  .moyene-shell-launcher {
+    position: absolute;
+    width: 475px;
+    height: 615px;
+    left: 35.5px;
+    bottom: 0px;
+    left: 0;
+    display: block;
+  
+    z-index: 9;
+  }
+
+
+  .moyene-shell-launcher-container {
+    position: relative;
+    margin: 0;
+    padding: 0 30px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(42,47, 52, .9);
+    border-top-right-radius: 4px;
+  }
+
+  .moyene-shell-launcher-container hr{
+    width: 91%;
+    background-color: rgba(0, 0, 0, .5)
+    
+  }
+
+  .moyene-shell-launcher-header {
+    width: 100%;
+    height: 70px;
+    padding-top: 15px;
+  }
+  .moyene-shell-launcher-header .profile {  
+      /* margin-left: 30px; */
+      width: 45px;
+
+  }
+  .moyene-shell-launcher-header .profile img {  
+    width: 45px;
+  }
+  .moyene-shell-launcher-header .form-search {
+    width: 80%;
+    float: right;
+  }
+  .moyene-shell-launcher-header .form-search label {
+    display: block;
+    font-size: 19px;
+    color: #fff;
+  }
+  .moyene-shell-launcher-header .form-search input {
+    display: block;
+    height: 28px;
+    width: 100%;
+    font-size: 15px;
+    background: transparent;
+    border: 1px solid gray;
+    border-radius: 2px;
+    padding-left: 5px;
+    color: #fff;
+  }
+  .moyene-shell-launcher-footer {
+    position: absolute;
+    height: 110px;
+    width: 100%;
+    bottom: 45px;
+    left: 0;
+    
+  }
+
+  .moyene-shell-launcher-tabSelector {
+    width: 100%;
+    padding: 0px 10px;
+  }
+  .moyene-shell-launcher-footer .moyene-shell-launcher-tab {
+    float: left;
+    width: 20%;
+    height: 85px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+  }
+
+
+  .moyene-shell-launcher-footer .moyene-shell-launcher-tab .tab-icon{
+    width: 28px;
+    height: 28px;
+    margin-top: 6px;
+    margin-left: auto;
+    margin-right: auto;
+   }
+   .moyene-shell-launcher-footer .moyene-shell-launcher-tab svg{
+    /* width: 100%; */
+    font-size: 30px;
+    color: #fff;
+   }
+  
+
+   .moyene-shell-launcher-footer .moyene-shell-launcher-tab .tab-name{
+  color: #fff;
+    max-width: 120px;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+
+.launch-tab-active {
+  position: absolute;
+    bottom: 0;
+      width: 100%;
+  border: 0.04em solid rgba(255, 255, 255, .15);
+}
+
+  /* fim moyene launch */
+  </style>
+  <script type="text/javascript" src="/js/jq/jquery-3.3.1.js"></script>
+
+</head>
+
+<body onload="moyene()">
+  <!-- Elementos para inicio da aplicacao -->
+  <div id="moyene">
+
+    <!-- Inicio block desktops container -->
+
+    <div id="moyene_shell_block_desktop">
+      <div id="moyene_shell_desktops_container">
+        <ul class="moyene-shell-desktop-container">
+
+
+          <!-- icon -->
+          <li class="moyene-shell-desktop-icon moyene-ui-draggable">
+            <div class="moyene-shell-desktop-icon_img">
+              <img src="/assets//desktopIcon/notificacao.svg" role="img" aria-hidden="true">
+            </div>
+            <div class="moyene-shell-desktop-icon_label">
+              <div class="l">Notificacao</div>
+              <div class="r"></div>
+            </div>
+
+          </li>
+          <!-- ./icon -->
+
+          <!-- icon -->
+
+          <li class="moyene-shell-desktop-icon moyene-ui-draggable">
+            <div class="moyene-shell-desktop-icon_img">
+              <img src="/assets//desktopIcon/mensagem.svg" role="img" aria-hidden="true">
+
+            </div>
+            <div class="moyene-shell-desktop-icon_label">
+              <div class="l">Mensagem</div>
+              <div class="r"></div>
+            </div>
+
+          </li>
+
+          <!-- ./icon -->
+          <!-- icon -->
+          <li class="moyene-shell-desktop-icon moyene-ui-draggable ">
+            <div class="moyene-shell-desktop-icon_img">
+              <img src="/assets/blue-manjaro/places/64/folder.svg" role="img" aria-hidden="true">
+
+            </div>
+            <div class="moyene-shell-desktop-icon_label">
+              <div class="l">Home</div>
+              <div class="r"></div>
+            </div>
+
+          </li>
+
+          <!-- ./icon -->
+          <!-- icon -->
+          <li class="moyene-shell-desktop-icon moyene-ui-draggable">
+            <div class="moyene-shell-desktop-icon_img">
+              <img src="/assets/blue-manjaro/devices/64/camera-photo.svg" role="img" aria-hidden="true">
+
+            </div>
+            <div class="moyene-shell-desktop-icon_label">
+              <div class="l">Camera</div>
+              <div class="r"></div>
+            </div>
+
+          </li>
+          <!-- ./icon -->
+          <!-- icon -->
+          <li class="moyene-shell-desktop-icon moyene-ui-draggable">
+            <div class="moyene-shell-desktop-icon_img">
+              <img src="/assets/blue-manjaro/apps/48/preferences-contact-list.svg" role="img" aria-hidden="true">
+
+            </div>
+            <div class="moyene-shell-desktop-icon_label">
+              <div class="l">Contacto</div>
+              <div class="r"></div>
+            </div>
+
+          </li>
+          <!-- ./icon -->
+          <!-- icon -->
+          <li class="moyene-shell-desktop-icon moyene-ui-draggable">
+            <div class="moyene-shell-desktop-icon_img">
+              <img src="/assets/blue-manjaro/apps/48/utilities-log-viewer.svg" role="img" aria-hidden="true">
+
+            </div>
+            <div class="moyene-shell-desktop-icon_label">
+              <div class="l">Actividade</div>
+              <div class="r"></div>
+            </div>
+
+          </li>
+          <!-- ./icon -->
+          <!-- icon -->
+          <li class="moyene-shell-desktop-icon moyene-ui-draggable">
+            <div class="moyene-shell-desktop-icon_img">
+              <img src="/assets/blue-manjaro/apps/48/octopi.svg" role="img" aria-hidden="true">
+
+            </div>
+            <div class="moyene-shell-desktop-icon_label ">
+              <div class="l">AppStore</div>
+              <div class="r"></div>
+            </div>
+
+          </li>
+
+          <!-- ./icon -->
+
+
+          <div class="moyene-shell-widget  moyene-ui-draggable">
+              <div class="moyene-shell-widget-content">
+              <div class="moyene-shell-widget-transfer">
+                <div tabindex="0" role="heading" aria-label="ferramenta" class="moyene-shell-widget-transfer-top">
+                  <p>Ferramenta</p>
+                </div>
+                <div class="moyene-shell-widget-transfer-tabSelector moyene-shell-widget-bg">
+
+                  <div class="moyene-shell-widget-transfer-tab moyene-shell-widget-transfer-tab-overview active">
+                    <div class="moyene-shell-widget-transfer-tab-icon">
+                        <img src="https://img.icons8.com/ios/100/000000/stack.png">
+                    </div>
+                    <div class="moyene-shell-widget-transfer-tab-name ellipsis ">Resumo</div>
+                  </div>
+                  <div class="moyene-shell-widget-transfer-tab moyene-shell-widget-transfer-tab-overview">
+                      <div class="moyene-shell-widget-transfer-tab-icon">
+                          <img src="https://img.icons8.com/ios/100/000000/folder-invoices.png">                        </div>
+                      <div class="moyene-shell-widget-transfer-tab-name ellipsis ">Ficheiro</div>
+                    </div>
+                    <div class="moyene-shell-widget-transfer-tab moyene-shell-widget-transfer-tab-overview">
+                        <div class="moyene-shell-widget-transfer-tab-icon">
+                            <img src="https://img.icons8.com/ios/96/000000/video-file.png">
+                            </div>
+                        <div class="moyene-shell-widget-transfer-tab-name ellipsis ">Foto / Video</div>
+                      </div>
+                      <div class="moyene-shell-widget-transfer-tab moyene-shell-widget-transfer-tab-overview ">
+                          <div class="moyene-shell-widget-transfer-tab-icon">
+                              <img src="https://img.icons8.com/ios/96/000000/multiple-devices.png">                          </div>
+                          <div class="moyene-shell-widget-transfer-tab-name ellipsis ">Dispositivos</div>
+                        </div>
+                        <!-- <div class="moyene-shell-widget-transfer-tab moyene-shell-widget-transfer-tab-overview ">
+                            <div class="moyene-shell-widget-transfer-tab-icon">
+                                <img src="https://img.icons8.com/ios/100/000000/stack.png">
+                            </div>
+                            <div class="moyene-shell-widget-transfer-tab-name ellipsis ">Resumo</div>
+                          </div> -->
+
+                </div>
+
+                <div class="moyene-shell-widget-transfer-up"></div>
+                <div class="moyene-shell-widget-transfer-tabView ">
+                  <div class="moyene-shell-widget-transfer-overview moyene-shell-widget-bg">
+
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+
+        </ul>
+
+      </div>
+    </div>
+    <!-- ./fim block desktops container -->
+    <!-- inicio block topnav -->
+    <div id="moyene_shell_block_topnav">
+      <div class="moyene-shell-nav">
+        <div id="moyene_shell-nav_logo">
+          <h3>moyene</h3>
+        </div>
+        <div id="moyene_shell_nav_search">
+          <input type="text" placeholder="pesquise aqui">
+        </div>
+        <div id="moyene_shell_nav_services">
+          <div class="icon">
+              <i class="fa fa-envelope"></i>
+
+          </div>
+          <div class="icon">
+              <i class="fa fa-phone"></i>
+
+          </div>
+          <div class="icon">
+            <i class="fa fa-bell"></i>
+          </div>
+          <div class="icon">
+              <i class="fa fa-cog"></i>
+            </div>
+            <div class="vl"></div>
+
+            <div class="icon">
+                <i class="fa fa-power-off"></i>
+              </div>
+    
+        </div>
+
+      </div>
+    </div>
+    <!-- ./fim block topnav -->
+
+
+    <!-- barra de tarefas -->
+    <div id="moyene_shell_block_taskbar">
+      <a class="moyene-shell-taskbar-menu">
+        <i class="fa fa-rocket"> </i>
+      </a>
+
+      <div class="moyene-shell-taskbar-container"></div>
+      <div class="moyene-shell-taskbar-notify-container">
+        <div class="moyene-shell-taskbar-notify-icon connect-model"></div>
+        <div class="moyene-shell-taskbar-notify-icon wifi"></div>
+        <div class="moyene-shell-taskbar-notify-icon signal"></div>
+        <div class="moyene-shell-taskbar-notify-icon batery"></div>
+
+      </div>
+
+    </div>
+    <!-- fim barra de tarefas -->
+    <!-- janelas das aplicacoes -->
+    <div class="moyene-shell-window start-center moyene-ui-draggable moyene-window-hide">
+      <div class="moyene-shell-window-outer">
+          <div class="moyene-shell-window-inner">
+            <div class="moyene-shell-window-content">
+
+      <div class="moyene-shell-window-titlebar">
+        <div class="moyene-shell-window-title">
+          
+            <img class="moyene-shell-window-titlebar-icon" valign="middle" src="/assets/blue-manjaro/places/64/folder.svg">
+        <span class="moyene-shell-window-titlebar-text">Ficheiro</span>
+        <span class="moyene-shell-window-titlebar-descricao"></span>
+        <div class="moyene-shell-window-title-button-bar">
+          <a class="action-button close " href="#"></a>
+          <a class="action-button maximize" href="#"></a>
+          <a  class="action-button minimize " href="#"></a>
+          
+        </div>
+      </div>
+      </div>
+
+      <div class="moyene-shell-window-body">
+          <div class="moyene-shell-window-body-area">
+              <div class="moyene-shell-window-toolbar"></div>
+              <div class="moyene-shell-window-container"></div>
+           
+            </div>
+      </div>
+
+  </div>
+  </div>
+</div>
+
+    </div>
+    <!-- fim janelas das aplicacoes -->
+
+
+    <!-- inicio barra de start -->
+    <div class="moyene-shell-launcher moyene-hide">
+        <div class="moyene-shell-launcher-container">
+
+      <div class="moyene-shell-launcher-header">
+        <a class="profile">
+          <!-- <i class="fa fa-user-o"></i> -->
+          <img src="/assets/fa/svgs/regular/user.svg" alt="">
+        </a>
+        <div class="form-search"> 
+          <label for="search">dercio guirruta</label>
+          <input type="text" placeholder="procurar...">
+        </div>
+        <span class="hl"></span>
+      </div>
+      <div class="moyene-shell-launcher-body">
+
+        </div>
+        
+        <div class="moyene-shell-launcher-footer">
+            <span class="hl"></span>
+
+          <div class="moyene-shell-launcher-tabSelector">
+            <!-- favorito -->
+            <div class="moyene-shell-launcher-tab favorite">
+                <div class="tab-icon">
+                    <!-- <img src="https://img.icons8.com/ios/100/000000/stack.png"> -->
+                    <i class="far fa-bookmark"></i>
+                </div>
+                <div class="tab-name ellipsis">Favorito</div>
+
+                <div class="launch-tab-active"></div>
+            </div>
+              <!-- ./favorito -->
+
+              <!-- aplicacoes -->
+              <div class="moyene-shell-launcher-tab favorite">
+                  <div class="tab-icon">
+                      <!-- <img src="https://img.icons8.com/ios/100/000000/stack.png"> -->
+                      <i class="fa fa-cubes"></i>
+                  </div>
+                  <div class="tab-name ellipsis">Aplicacoes</div>
+  
+              </div>
+              <!-- ./aplicacoes -->
+
+              <!-- aplicacoes -->
+              <div class="moyene-shell-launcher-tab favorite">
+                  <div class="tab-icon">
+                      <!-- <img src="https://img.icons8.com/ios/100/000000/stack.png"> -->
+                      <i class="fa fa-desktop"></i>
+                  </div>
+                  <div class="tab-name ellipsis">Moyene</div>
+
+              </div>
+              <!-- ./aplicacoes -->
+              <!-- aplicacoes -->
+              <div class="moyene-shell-launcher-tab favorite">
+                  <div class="tab-icon">
+                      <!-- <img src="https://img.icons8.com/ios/100/000000/stack.png"> -->
+                      <i class="fa fa-history"></i>
+                  </div>
+                  <div class="tab-name ellipsis">Historico</div>
+
+              </div>
+              <!-- ./aplicacoes -->
+
+              <!-- sair -->
+              <div class="moyene-shell-launcher-tab favorite">
+                  <div class="tab-icon">
+                      <!-- <img src="https://img.icons8.com/ios/100/000000/stack.png"> -->
+                      <i class="fa fa-sign-out-alt"></i>
+                  </div>
+                  <div class="tab-name ellipsis">Sair</div>
+
+              </div>
+              <!-- ./sair -->
+
+
+          </div>
+
+          </div>
+      
+        </div>
+    </div>
+    <!-- fim barra de start -->
+
+  </div>
+
+  </div>
+
+
+  <script>
+    function moyene() {
+
+
+      var launch_instance, line_count, total_elmnt_height, total_elmnt_width
+        elmnt_margin = 6
+        column_count = 1
+      height_offset = 0,
+        width_offset = 0
+      arr = [].slice.call(document.getElementsByClassName("moyene-shell-desktop-icon"));
+      // arr.push(make_icon_element("/assets/desktopIcon/notificacao.svg", "notificacao"))
+      line_count = 0
+      arr.forEach((elmnt) => {
+
+        elmnt.ondblclick = onClick_app
+
+        height_offset = elmnt.offsetHeight;
+        width_offset = elmnt.offsetWidth;
+
+          if (line_count ==   0 || (line_count != 0 && line_count % 4 === 0) ) {
+            if (line_count > 0)  {
+              elmnt.style.left = (width_offset + 25) + "px";
+              column_count++
+
+            }
+            elmnt.style.top = 20 + "px"
+          } else {
+            if (column_count > 1) {
+              elmnt.style.left = ((width_offset * (column_count - 1)) + 25) + "px";
+              total_elmnt_height = 0;
+
+            }
+            total_elmnt_height = height_offset * (line_count  % 4);
+
+            elmnt.style.top = (total_elmnt_height + elmnt_margin) + "px"
+          }
+        // }
+        line_count++;
+      });
+
+
+      arr = [].slice.call(document.getElementsByClassName("moyene-ui-draggable"));
+
+
+      arr.forEach((elmnt) => {
+        dragElement(elmnt)
+      });
+
+
+
+      // anexar evento click ao launch
+      launch_instance = document.getElementsByClassName("moyene-shell-taskbar-menu")[0]
+      launch_instance.onclick = onClick_launch
+
+
+      function dragElement(elmnt) {
+        var last_zIndex,
+          pos1 = 0,
+          pos2 = 0,
+          pos3 = 0,
+          pos4 = 0;
+
+        // if (document.getElementById(elmnt.id + "header")) {
+        //   /* if present, the header is where you move the DIV from:*/
+        //   document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+        // } else {
+        //   /* otherwise, move the DIV from anywhere inside the DIV:*/
+        // }
+
+
+        elmnt.onmousedown = dragMouseDown;
+        last_zIndex = elmnt.style.zIndex;
+
+
+
+        function dragMouseDown(e) {
+          e = e || window.event;
+          e.preventDefault();
+          // get the mouse cursor position at startup:
+          pos3 = e.clientX;
+          pos4 = e.clientY;
+          document.onmouseup = closeDragElement;
+          // call a function whenever the cursor moves:
+          document.onmousemove = elementDrag;
+        }
+
+        function elementDrag(e) {
+          e = e || window.event;
+          e.preventDefault();
+          // calculate the new cursor position:
+          pos1 = pos3 - e.clientX;
+          pos2 = pos4 - e.clientY;
+          pos3 = e.clientX;
+          pos4 = e.clientY;
+
+          elmnt.style.zIndex = 10
+          // set the element's new position:
+          elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+          elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+          elmnt.style.cursor = "move"
+        }
+
+        function closeDragElement() {
+          /* stop moving when mouse button is released:*/
+          document.onmouseup = null;
+          document.onmousemove = null;
+          elmnt.style.zIndex = last_zIndex;
+          elmnt.style.cursor = "pointer"
+
+
+        }
+      }
+
+
+      function make_icon_element(icon_src_img, icon_label) {
+        var icon_item, icon_container_img, icon_img,
+          icon_container_label, icon_label, 
+          icon_label_left, icon_label_right
+        ;
+
+        icon_item = document.createElement("li");
+        icon_container_img = document.createElement("div");        
+        icon_img = document.createElement("img");        
+        icon_container_label= document.createElement("div");
+        icon_label_left = document.createElement("div");
+        icon_label_right = document.createElement("div");
+      
+        icon_item.classList.add("moyene-shell-desktop-icon");
+        icon_item.classList.add("moyene-ui-draggable");
+        icon_container_img.classList.add("moyene-shell-desktop-icon_img")
+        icon_container_label.classList.add("moyene-shell-desktop-icon_label")
+        icon_label_left.classList.add("l")
+        icon_label_right.classList.add("r")
+
+        icon_label_left.innerText = icon_label
+        icon_img.src = icon_src_img
+
+        icon_container_img.appendChild(icon_img);
+        icon_container_label.appendChild(icon_label_left)
+        icon_container_label.appendChild(icon_label_right)
+
+        icon_item.appendChild(icon_container_img)
+        icon_item.appendChild(icon_container_label)
+
+
+        return icon_item
+
+      }
+
+
+      // abrir janela da aplicacao 
+      function onClick_app() {
+        var minimize_btn, maximize_btn, close_btn,
+         window_instance = document.getElementsByClassName("moyene-shell-window")[0]
+        // window_instance.classList.
+        if ( window_instance.classList.contains("moyene-window-hide") === true ) {
+          window_instance.classList.remove("moyene-window-hide")
+        }
+
+        // registrar todos eventos da aplicacao e janela
+        close_btn = document.getElementsByClassName("action-button close")[0]
+        minimize_btn = document.getElementsByClassName("action-button minimize")[0]
+        maximize_btn = document.getElementsByClassName("action-button maximize")[0]
+        
+        close_btn.onclick = on_click_close_app
+        minimize_btn.onclick = on_click_minimize_app()
+        maximize_btn.onclick = on_click_maximize_app()
+
+      }
+
+      function on_click_close_app() {
+        var window_instance = document.getElementsByClassName("moyene-shell-window")[0]
+        window_instance.classList.add("moyene-window-hide")
+
+      }
+
+      function on_click_maximize_app() {
+        // todo
+      }
+      
+
+
+      function on_click_minimize_app() {
+        // todo
+
+      }
+
+
+      // launch function
+
+      function onClick_launch() {
+      
+        var launch_instance = document.getElementsByClassName("moyene-shell-launcher")[0]
+        // window_instance.classList.
+        if ( launch_instance.classList.contains("moyene-hide") === true ) {
+          launch_instance.classList.remove("moyene-hide")
+        } else {
+          launch_instance.classList.add("moyene-hide")
+
+        }
+
+      }
+      function on_click_close_launch() {
+        var window_instance = document.getElementsByClassName("moyene-shell-launcher")[0]
+        window_instance.classList.add("moyene-hide")
+
+      }
+
+      
+      // ./lauch function
+
+
+    }
+  </script>
+</body>
+
+</html>
