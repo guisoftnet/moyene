@@ -118,8 +118,10 @@
 .dropdown-menu img {
   position: relative;
   margin-right: 15px;
-  top: -4px;
+  top: 3px;
+  left: 5px;
 }
+
 
 
 .dropdown-menu .notification-user {
@@ -175,11 +177,13 @@
 
 
 
-a.dropdown-item svg {
-  width: 30px;
+  .dropdown-notification .moyene-notification-container svg {
   height: 25px;
-  margin-right: 15px;
+  margin-right: 10px;
+  /* margin-top: 2px; */
+  margin-left: 5px;
 }
+
 
 .dropdown .dropdown-item {
   padding: 0

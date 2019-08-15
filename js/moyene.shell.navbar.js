@@ -218,24 +218,47 @@ moyene.shell.navbar = (function () {
       ,$notification_text_title = $('<span/>')
       ,$notification_text_time = $('<span/>')
       ,$notification_text_message = $('<p/>')
+      ,$notification_user_avatar = $('<img/>')
+      ,$notification_icon_call =  $('<i/>');
 
 
     $notification_container.addClass('dropdown-item').attr('javascript:void(0)');
     $notification_icon.addClass('fa fa-sync float-left text-success');
-    $notification_text_container.addClass('notification-text ');
+    $notification_text_container.addClass('notification-text w-75 float-left');
     $notification_text_title.addClass('notification-user');
     $notification_text_time.addClass('notification-time float-right');
     $notification_text_message.addClass('notification-body moyene-truncate');    
-    $notification_container
+    
+    $notification_user_avatar.attr('src', 'https://via.placeholder.com/50');
+    if (type === 'call') {
+      $notification_user_avatar.addClass('avatar-small float-left');
+      $notification_icon_call.addClass('fa fa-phone-slash float-right text-success');
+      $notification_container.append($notification_user_avatar);
+      // $notification_text_message.addClass('inline-block')
+    } else if (type === 'message') {
+      $notification_user_avatar.addClass('avatar float-left');
+      $notification_container.append($notification_user_avatar);
 
-    $notification_container.append($notification_icon);
+    } else {
+      $notification_container.append($notification_icon);
+
+    } 
+
     $notification_container.append($notification_text_container);
     $notification_text_container.append($notification_text_title);
     $notification_text_container.append($notification_text_time);
     $notification_text_container.append($notification_text_message);
+
+
     $notification_text_title.text(title);
     $notification_text_message.text(message);
     $notification_text_time.text(time);
+    if (type === 'call') {
+      $notification_text_message.append($notification_icon_call);
+      $notification_text_message.addClass('w-100');
+    }
+
+    
 
     return {map: $notification_container, type: type}
    }
