@@ -117,7 +117,7 @@ callList = [
   title   : 'Casquinho',
   message : 'Video!',
   type    : 'call',       
-  type_call : {
+  call : {
     type:  'incoming',
     message: {
       pt:  'Recebida',
@@ -129,7 +129,7 @@ callList = [
   title   : 'Jorge Rodrigues ',
   message : 'Video Conferencia!',
   type    : 'call',          
-  type_call : {
+  call : {
     type:  'outgoing',
     message: {
       pt:  'Efectuada',
@@ -142,7 +142,7 @@ callList = [
   title   : 'Bernardo',
   message : 'Audio',
   type    : 'call',          
-  type_call : {
+  call : {
     type:  'incoming',
     message: {
       pt:  'Recebida',
@@ -155,7 +155,7 @@ callList = [
   title   : 'Paulo',
   message : 'Video',
   type    : 'call',
-  type_call : {
+  call : {
     type:  'missed',
     message: {
       pt:  'Nao atendida',
@@ -167,7 +167,7 @@ callList = [
   title   : 'Leo',
   message : 'Audio',
   type    : 'call',          
-  type_call : {
+  call : {
     type:  'outgoing',
     message: {
       pt:  'Efectuada',
@@ -235,7 +235,7 @@ callList = [
         notificationList.push(notification);
         callback_map.updatenotification([notificationList]);
       }, 5000);
-      
+
       setTimeout(() => {      
         callback_map.updatenotification([messageList]);
       }, 3000);

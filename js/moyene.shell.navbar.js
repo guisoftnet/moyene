@@ -211,7 +211,7 @@ moyene.shell.navbar = (function () {
     // Retorno : objecto jquery contendo  estrutura de uma notificacao
     // Excecao : nenhuma
     //
-  _create_notification_item = function (title, message, time, type='alert') { 
+  _create_notification_item = function (title, message, time, type='alert', call) { 
     var $notification_container = $('<a/>')
       ,$notification_icon = $('<i/>')
       ,$notification_text_container = $('<div/>')
@@ -219,11 +219,11 @@ moyene.shell.navbar = (function () {
       ,$notification_text_time = $('<span/>')
       ,$notification_text_message = $('<p/>')
       ,$notification_user_avatar = $('<img/>')
-      ,$notification_icon_call =  $('<i/>');
+      ,$notification_icon_call =  $('<i/>')
+      ;
 
 
     $notification_container.addClass('dropdown-item').attr('javascript:void(0)');
-    $notification_icon.addClass('fa fa-sync float-left text-success');
     $notification_text_container.addClass('notification-text w-75 float-left');
     $notification_text_title.addClass('notification-user');
     $notification_text_time.addClass('notification-time float-right');
@@ -232,14 +232,32 @@ moyene.shell.navbar = (function () {
     $notification_user_avatar.attr('src', 'https://via.placeholder.com/50');
     if (type === 'call') {
       $notification_user_avatar.addClass('avatar-small float-left');
-      $notification_icon_call.addClass('fa fa-phone-slash float-right text-success');
+      if ( call ) {
+        if ( call.type === 'missed'  ) {
+          $notification_icon_call.addClass('text-warning');
+        } else  if ( call.type === 'outgoing'  ) {
+          $notification_icon_call.addClass('text-primary');
+      } else  if ( call.type === 'incoming'  ) {
+    $notification_icon_call.addClass('text-success');
+      }
+  }
+  
+
+      $notification_icon_call.addClass('fa fa-phone-alt float-right');
       $notification_container.append($notification_user_avatar);
       // $notification_text_message.addClass('inline-block')
     } else if (type === 'message') {
       $notification_user_avatar.addClass('avatar float-left');
       $notification_container.append($notification_user_avatar);
-
+      // type_call = 
     } else {
+        
+      $notification_icon.addClass('fa fa-sync float-left text-success'); // actualizacao
+      // $notification_icon.addClass('fa fa-user float-left text-success'); // actualizacao
+      // $notification_icon.addClass('fa fa-wifi float-left text-success'); // logado
+      // $notification_icon.addClass('fa fa-calendar-alt float-left text-success'); // alarme
+      // $notification_icon.addClass('fa fa-exclamation float-left text-success'); // system
+      
       $notification_container.append($notification_icon);
 
     } 
@@ -273,7 +291,7 @@ moyene.shell.navbar = (function () {
   // fim metodo privado /_create_divider/
 
   // inicio metodo privado /_push_notification/
-  // Proposito : inserir resumo de uma notificacao na navbar
+  // Proposito : inserir uma notificacao na navbar
   //    
   // Argumento : 
   //  * $notification - objecto jquery
@@ -285,28 +303,30 @@ moyene.shell.navbar = (function () {
     var $notification = notification.map
       ,type = notification.type;
 
+      
+
     switch (type) {
-      case 'alert':        
-        jqueryMap.$notification_container.append($notification)
+      case 'alert':
+        jqueryMap.$notification_container.append($notification)        
         jqueryMap.$notification_container.append(_create_divider())
         jqueryMap.$notification_footer.text('Ver todas notificacoes');
         break;
         case 'call':        
-        jqueryMap.$notification_call_container.append($notification)
+        jqueryMap.$notification_call_container.append($notification)        
         jqueryMap.$notification_call_container.append(_create_divider())
         jqueryMap.$notification_call_footer.text('Ver todas as chamadas');
 
+
         break;
         case 'message':        
-        jqueryMap.$notification_message_container.append($notification)
-        jqueryMap.$notification_message_container.append(_create_divider())
+        jqueryMap.$notification_message_container.append($notification)        
+        jqueryMap.$notification_message_container.append(_create_divider())      
         jqueryMap.$notification_message_footer.text('Ver todas mensagens');
-
         break;    
       default:
         break;
     }
-
+    
   }
   // fim metodo privado /_push_notification/
 
@@ -329,19 +349,21 @@ moyene.shell.navbar = (function () {
     //inicio /_on_notification
 
     _onNotification = function() {
-      var notificanotification_itemtion
+      var notification_item, call;
       $.gevent.subscribe( jqueryMap.$container, 'moyene-updatenotification', function(event, notification_map ) {
         if ( notification_map ) {
           if (Array.isArray(notification_map)) {
             notification_map.forEach(function (notification) { 
-              console.log(notification)
-              notification_item =  _create_notification_item(notification.title, notification.message, notification.timestamp, notification.type)
-              _push_notification(notification_item)
+              console.log(notification);
+              call = notification.call ? notification.call : null;
+              notification_item =  _create_notification_item(notification.title, notification.message, notification.timestamp, notification.type, call);
+              _push_notification(notification_item);
 
             })
           } else {
-            notification_item =  _create_notification_item(notification_map.title, notification_map.message, notification_map.timestamp, notification.type)
-          _push_notification(notification_item)
+            call = notification_map.call ? notification_map.call : null
+            notification_item =  _create_notification_item(notification_map.title, notification_map.message, notification_map.timestamp, notification.type, call);
+            _push_notification(notification_item);
           }
         }
        });

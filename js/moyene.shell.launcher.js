@@ -213,12 +213,12 @@ moyene.shell.launcher = (function () {
       + ' <div class="moyene-shell-launcher-container">'
       + '   <div class="moyene-shell-launcher-header">'
       + '     <a class="profile">'
-      + '       <img src="/assets/themify-icons/SVG/user.svg" alt="dercio guirruta">'
+      + '       <img class="launcher-user-img" src="/assets/themify-icons/SVG/user.svg" alt="">'
       // + '           <i class="ti-user"></i>'
 
       + '     </a>'
       + '     <div class="form-search"> '
-      + '       <label for="search">dercio guirruta</label>'
+      + '       <label class="launcher-user" for="search"></label>'
       + '       <input class="moyene-shell-launcher-search" type="text" placeholder="procurar...">'
       + '     </div>'
       + '     <span class="hl"></span>'
@@ -289,7 +289,7 @@ moyene.shell.launcher = (function () {
       $container: $container,
       $input_search : $container.find( 'input.moyene-shell-launcher-search '),
       $launch_body  : $container.find('.moyene-shell-launcher-body'),
-     
+      $launch_label_user : $container.find('.launcher-user'),
       $tabicons : $container.find('.moyene-shell-launcher-tab')
 
     };
@@ -376,6 +376,17 @@ onLaunchtabHover = function( event ) {
 }
 // Fim /onLaunchtabHover/
 
+// inicio /onLogin/
+onLogin = function() {
+  $.gevent.subscribe(jqueryMap.$container, 'moyene-login', function (event, user ) {
+    // console.log("hello new internet", user.name);
+    jqueryMap.$launch_label_user.text(user.name)  
+  });
+
+
+}
+// fim /onLogin/
+
   //-------------------- FIM INICIO MANIPULADOR EVENTO --------------------
 
   //------------------- INICIO METODOS PUBLICOS -------------------
@@ -416,6 +427,7 @@ onLaunchtabHover = function( event ) {
     jqueryMap.$container.hide();
 
     // publicar e subscrever eventos ao launcher
+    onLogin();
     jqueryMap.$tabicons.hover(onLaunchtabHover);
 
     // jqueryMap.$container.menu.bind('utap', _onTapToggle)
