@@ -75,6 +75,8 @@ moyene.model = (function () {
     chat.join();
     notification.get_notification();
     notification.send_notification("system", "login", "usuario " + stateMap.user.name + " logado", "alert");
+    storage.fetch_disk_space();
+    storage.askfor_disk_space();
 
     // Aqui onde vamos processar e sincronizar todos dados e informacoes  
     // do usuario que acabou de logar
@@ -435,7 +437,7 @@ moyene.model = (function () {
     send_notification = function(source, title, message, type) {
       var notifiation_map,
         sio = isFakeData ? moyene.fake.mockSio : moyene.data.getSio();
-        _timestamp = new Date()
+        _timestamp = new Date();
       if ( ! sio ) { return false; }
       if ( ! stateMap.user ) { return false; }
 
@@ -450,7 +452,7 @@ moyene.model = (function () {
 
       // publicar evento updatenotification 
       // _systemEvent();
-      _publish_updatenotification( [notification_map] )
+      _publish_updatenotification( [notification_map] );
       sio.emit( 'updatenotification', notification_map );
       return true;
 
@@ -467,6 +469,46 @@ moyene.model = (function () {
       get_notification  : get_notification
     }
   }());
+
+// The storage object API
+  //-----------------------
+  // Objecto 'storage' esta disponivel em moyene.model.storage.
+  // Objeto 'storage' fornece metodos e eventos para gerir 
+  //  armazenamento da instancia . Metodos publicos inclui:
+  //    * get_total_space() - retorna espaco total alocado a 
+  //            instania ou total do sistema se for dinamico
+  //    * get_used_space - retorna espaco em uso pela instancia
+  //
+  // 
+  // Jquery Eventos global publicado pelo objecto inclui:
+  //    * moyene-updateDatastorage - evento publicado sempre que houver
+  //        alguma alteracao no sistema do ficheiro. Mapa com nova infor-
+  //        macao sobre armazenamento eh enviado
+ 
+  storage = (function(){
+    var  fetch_disk_space
+      , sio = isFakeData ? moyene.fake.mockSio : moyene.data.getSio();
+;
+
+    askfor_disk_space = function() {
+      sio.emit( 'updateDatastorage' );    
+      return true;  
+    }
+    
+
+    fetch_disk_space = function () { 
+      sio.on('updateDatastorage', _publish_disk_space)
+     }
+
+    _publish_disk_space = function(arg_list) {
+      var diskspace_map = arg_list[ 0 ];
+      $.gevent.publish('moyene-updateDatastorage', [ diskspace_map ]);
+    }
+    return {
+      fetch_disk_space : fetch_disk_space,
+      askfor_disk_space : askfor_disk_space
+    } ;
+  }())
 
 
   //------------------- INICIO METODOS PUBLICOS -------------------
@@ -509,7 +551,8 @@ moyene.model = (function () {
       initModule: initModule,
       chat      : chat,
       users     : users,
-      notification : notification
+      notification : notification,
+      storage   : storage,
     };
 
 

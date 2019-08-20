@@ -15,7 +15,7 @@ white : true
 moyene.fake = (function () {
   'use strict'
   //---------------- INICIO MODULO ESCOPO VARIAVEL --------------
-  var getUserList, fakeIdSerial, makeFakeId, mockSio, userList, emit_mock_msg, notificationList, messageList, callList;
+  var getUserList, fakeIdSerial, makeFakeId, mockSio, userList, emit_mock_msg, notificationList, messageList, callList, instanceStorageList;
     
 
   fakeIdSerial = 5;
@@ -180,6 +180,17 @@ callList = [
 ];
 
 
+instanceStorageList = [
+  {
+    id: 1,
+    nome: 'instancia 1',
+    total: 20350672896,
+    used: 1024 
+
+  }
+
+]
+
   mockSio = (function () {
     var on_sio, emit_sio, send_listchange, listchange_idto,
      callback_map = {};
@@ -254,6 +265,21 @@ callList = [
       }
       send_listchange();
     }
+
+    console.log("map",callback_map);
+    if ( msg_type === 'updateDatastorage' && callback_map.updateDatastorage ) {
+      console.log("map1",callback_map);
+      setTimeout(() => {      
+        callback_map.updateDatastorage([instanceStorageList]);
+      }, 3000);
+    }
+
+
+
+
+
+
+
   };
 
     emit_mock_msg = function () { 

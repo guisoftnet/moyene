@@ -406,14 +406,14 @@ moyene.shell.navbar = (function () {
     //    
     initModule = function ($container) {
       stateMap.$container = $container;
-      $container.html(configMap.main_html+configMap.logout_html)
+      $container.html(configMap.main_html+configMap.logout_html);
       setJqueryMap();
       // _context_menu();
 
       // publicar e subscrever eventos
       jqueryMap.$logoutBtn.click(_onClicklogout);      
-      jqueryMap.$logoutView_cancelbtn.click(_onClickexitlogoutview)
-      _onNotification()
+      jqueryMap.$logoutView_cancelbtn.click(_onClickexitlogoutview);
+      _onNotification();
 
       return true;
     };
@@ -423,7 +423,6 @@ moyene.shell.navbar = (function () {
     return {
       configModule: configModule,
       initModule: initModule,
-      create_notification: _create_notification_item
     };
     //-------------------  FIM METODOS PUBLICOS ---------------------
   }());
