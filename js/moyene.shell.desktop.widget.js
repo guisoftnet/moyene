@@ -26,7 +26,7 @@ moyene.shell.desktop.widget = (function () {
 
       +             '<div class="moyene-shell-widget-transfer-tab moyene-shell-widget-transfer-tab-overview tab-overview active">'
       +               '<div class="moyene-shell-widget-transfer-tab-icon">'
-      + '       <img src="/assets/themify-icons/SVG/harddrives.svg" alt="">'
+      + '               <img src="/assets/themify-icons/SVG/harddrives.svg" alt="">'
       +               '</div>'
       +               '<div class="moyene-shell-widget-transfer-tab-name ellipsis ">Resumo</div>'
       +             '</div>'
@@ -54,18 +54,8 @@ moyene.shell.desktop.widget = (function () {
       +           '<div class="moyene-shell-widget-transfer-up"></div>'
       +             '<div class="moyene-shell-widget-transfer-tabView moyene-shell-widget-bg">'
       +               '<div class="moyene-shell-widget-transfer-overview moyene-active">'
-      +                 '<div id="instancia1" class="diskspace">'
       +                   '<p class="diskspace-title "><i class="fa fa-hdd"></i> Armazenamento</p>'
-      +                   '<div class="diskspace">'
-      + '                 <span class="diskspace-text ">/instancia - 78%</span>'                    
-      + '                 <span class="float-right diskspace-text">/instancia - 78%</span>'                    
-
-      +                   '<div class="diskspace-container">'
-      + '                   <div class="diskspace-container-fill"></div>'
-      +                   '</div>'        
-      +                   '</div>'        
      
-      + '                 </div>'
       + '                 </div>'
       + '                 <div class="moyene-shell-widget-transfer-uploadfile">'
       + '                     <span class="uploadfile-text h-25">Carregar para: <label class="text-secondary">/home/publico/</label>  </span>'                                                                                                            
@@ -103,7 +93,7 @@ moyene.shell.desktop.widget = (function () {
     jqueryMap = {},
     setJqueryMap, configModule, initModule, onClickTab, _dragDrop
     , _context_menu, _create_instance_diskspace, _append_diskspace
-    , _onUpdatDataStorage;
+    , _onUpdatDataStorage, _percentage;
   //----------------- FIM MODULO ESCOPO VARIAVEL ---------------
 
   //------------------- INICIO METODOS UTILITARIO ------------------
@@ -130,6 +120,16 @@ moyene.shell.desktop.widget = (function () {
  }
  
   // fim metodo   /formatBytes/
+
+  // inicio metodo   /formatBytes/
+  _percentage = function(used, total) {
+    if (isNaN(used) || isNaN(total)) {
+      return null
+    }
+    return (used / total) * 100;
+  }
+  // fim metodo   /formatBytes/
+
 
   //-------------------- FIM METODOS UTILITARIO -------------------
   //--------------------- INICIO METODO DOM  --------------------
@@ -375,13 +375,14 @@ _append_diskspace = function($diskspace) {
   // inicio metodo /_onUpdatDataStorage/
   _onUpdatDataStorage = function() {
     var info = {},
-        $diskspace;
+        $diskspace, percentage;
 
     $.gevent.subscribe( jqueryMap.$container, 'moyene-updateDatastorage', function(event, diskspace ) {
       diskspace = diskspace[0]
-      info.instancia = diskspace.name;
+      percentage =  _percentage(diskspace.used,diskspace.total);
+      info.instancia = diskspace.name + ' - ' + parseFloat(percentage).toFixed(2) + '%'
       info.space =  formatBytes(diskspace.used) + " / " + formatBytes(diskspace.total) ;
-      info.percentage = 78;
+      info.percentage = percentage;
 
       $diskspace = _create_instance_diskspace(info);
       _append_diskspace($diskspace);

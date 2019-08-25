@@ -1,12 +1,12 @@
 
       /* inicio widget */
       .moyene-shell-widget {
+        display: block;
+        top: 64px;
+        right: 30px;
         width: 300px;
         height: 270px;
         z-index: 4;
-        display: block;
-        right: 30px;
-        top: 0px;
         font-family: 'Roboto Condensed', sans-serif;
 
       }

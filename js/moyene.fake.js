@@ -183,9 +183,9 @@ callList = [
 instanceStorageList = [
   {
     id: 1,
-    name: 'instancia 1',
+    name: 'instancia_1',
     total: 20350672896,
-    used: 1024 
+    used: 2030672896 
 
   }
 
