@@ -183,7 +183,7 @@ callList = [
 instanceStorageList = [
   {
     id: 1,
-    nome: 'instancia 1',
+    name: 'instancia 1',
     total: 20350672896,
     used: 1024 
 
@@ -266,9 +266,7 @@ instanceStorageList = [
       send_listchange();
     }
 
-    console.log("map",callback_map);
     if ( msg_type === 'updateDatastorage' && callback_map.updateDatastorage ) {
-      console.log("map1",callback_map);
       setTimeout(() => {      
         callback_map.updateDatastorage([instanceStorageList]);
       }, 3000);

@@ -486,7 +486,7 @@ moyene.model = (function () {
   //        macao sobre armazenamento eh enviado
  
   storage = (function(){
-    var  fetch_disk_space
+    var  fetch_disk_space, askfor_disk_space
       , sio = isFakeData ? moyene.fake.mockSio : moyene.data.getSio();
 ;
 

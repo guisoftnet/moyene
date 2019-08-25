@@ -64,12 +64,7 @@ moyene.shell.desktop.widget = (function () {
       + '                   <div class="diskspace-container-fill"></div>'
       +                   '</div>'        
       +                   '</div>'        
-      +                 '<div id="instancia2" class="diskspace">'
-      + '                   <span class="diskspace-text">/instancia - 60%</span>'                    
-      + '                   <div class="diskspace-container">'
-      + '                  <div class="diskspace-container-fill"></div>'
-      + '                   </div>'                    
-      +                   '</div>'        
+     
       + '                 </div>'
       + '                 </div>'
       + '                 <div class="moyene-shell-widget-transfer-uploadfile">'
@@ -112,7 +107,30 @@ moyene.shell.desktop.widget = (function () {
   //----------------- FIM MODULO ESCOPO VARIAVEL ---------------
 
   //------------------- INICIO METODOS UTILITARIO ------------------
-  // example : getTrimmedString
+  
+// inicio metodo   /formatBytes/
+// Proposito : formatar bytes inteiros em valores facilmente lidos 
+//
+// Argumento : 
+//    * bytes - valores inteiro a conveter.
+//    * decimals - numero de casa decimais a considerar.
+// Definicoes : nenhum
+// Retorno : valores em string representado bytes em valores perceptiveis.
+// Excecao : nenhum
+//
+// Codigo encontrado em STACKOVERFLOW:  https://stackoverflow.com/questions/15900485/correct-way-to-convert-size-in-bytes-to-kb-mb-gb-in-javascript
+
+  formatBytes = function (bytes,decimals) {
+    if(bytes == 0) return '0 Bytes';
+    var k = 1024,
+        dm = decimals <= 0 ? 0 : decimals || 2,
+        sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+        i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+ }
+ 
+  // fim metodo   /formatBytes/
+
   //-------------------- FIM METODOS UTILITARIO -------------------
   //--------------------- INICIO METODO DOM  --------------------
   // Inicio metodo DOM /setJqueryMap/
@@ -289,8 +307,10 @@ var $diskspace = $('<div/>')
 
   $diskspace_text.text(info.instancia);
   $diskspace_text_right.text(info.space);
-  $diskspace_container_fill.css('width', info.percentage)
+  $diskspace_container_fill.css('width', info.percentage + "%");
 
+
+  return $diskspace;
 }
 // fim metodo DOM  /_create_instance_diskspace/
 
@@ -354,8 +374,17 @@ _append_diskspace = function($diskspace) {
   
   // inicio metodo /_onUpdatDataStorage/
   _onUpdatDataStorage = function() {
+    var info = {},
+        $diskspace;
+
     $.gevent.subscribe( jqueryMap.$container, 'moyene-updateDatastorage', function(event, diskspace ) {
-      console.log(diskspace);
+      diskspace = diskspace[0]
+      info.instancia = diskspace.name;
+      info.space =  formatBytes(diskspace.used) + " / " + formatBytes(diskspace.total) ;
+      info.percentage = 78;
+
+      $diskspace = _create_instance_diskspace(info);
+      _append_diskspace($diskspace);
     });
 
   }

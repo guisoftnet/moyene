@@ -334,7 +334,6 @@ onLaunchtabHover = function( event ) {
   
   $tab_active = jqueryMap.$tabicons.find('.launch-tab-active');
   $tab_hover = $(this).find('.launch-tab-active');
-  console.log($(this))
 
   if ( !$tab_hover.length ) {
     $(this).append($tab_active);
@@ -379,7 +378,6 @@ onLaunchtabHover = function( event ) {
 // inicio /onLogin/
 onLogin = function() {
   $.gevent.subscribe(jqueryMap.$container, 'moyene-login', function (event, user ) {
-    // console.log("hello new internet", user.name);
     jqueryMap.$launch_label_user.text(user.name)  
   });
 
