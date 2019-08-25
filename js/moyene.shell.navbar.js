@@ -106,11 +106,12 @@ moyene.shell.navbar = (function () {
         + '    <div class="dropdown-divider w-100"></div>'
         + '   </div>'
         + '   </div>'        
+
+        +   '<div  class="dropdown dropdown-poweroff">'
         +     '<a   class="icon " href="javascript:void(0)"  id="navbar-logout" >'
         +       '<i class="fa fa-power-off"></i>'
-        +     '</a>'
-      
-        // + '   </div>'
+        +     '</a>'      
+        + '   </div>'
         // + '   </div>'
         // + '   </div>'        
         +   '</div>'
