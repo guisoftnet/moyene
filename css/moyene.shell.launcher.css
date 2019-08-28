@@ -110,9 +110,6 @@
 
 }
 
-.moyene-shell-launcher-label  {
-
-}
 /* corpo */
 
   /* Rodape */
@@ -183,5 +180,14 @@
             animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   }
   /* fim animacao */
+  
+
+
+/* inicio launch body */
+.moyene-shell-launcher-body {
+  height: 24em;
+  overflow: auto;
+}
+/* fim launch body */
   
   /* fim moyene launch */  
