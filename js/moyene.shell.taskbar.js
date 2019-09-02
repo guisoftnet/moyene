@@ -15,6 +15,8 @@ moyene.shell.taskbar = (function () {
   
     configMap = {
       main_html : String()
+      + '<div class="moyene-shell-taskbar">'
+
       + '<a class="moyene-shell-taskbar-menu ">'
       +   '<i class="lni-rocket"> </i>'
       + '</a>'
@@ -31,6 +33,8 @@ moyene.shell.taskbar = (function () {
       + '     </div>'
       + '   </div>'
       + '</div>'
+      + '</div>'
+
 
       // +   '<div class="moyene-shell-taskbar-notify-icon signal"><i class="lni-chevron-up"></i></div>'
       + '</div>'

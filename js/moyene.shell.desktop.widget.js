@@ -22,7 +22,7 @@ moyene.shell.desktop.widget = (function () {
       +           '<div tabindex="0" role="heading" aria-label="ferramenta" class="moyene-shell-widget-transfer-top">'
       +               '<p>Ferramenta</p>'
       +           ' </div>'
-      +           '<div class="moyene-shell-widget-transfer-tabSelector moyene-shell-widget-bg">'
+      +           '<div class="moyene-shell-widget-transfer-tabSelector moyene-glass">'
 
       +             '<div class="moyene-shell-widget-transfer-tab moyene-shell-widget-transfer-tab-overview tab-overview active">'
       +               '<div class="moyene-shell-widget-transfer-tab-icon">'
@@ -52,7 +52,7 @@ moyene.shell.desktop.widget = (function () {
       +             '</div>'
       +           '</div>'
       +           '<div class="moyene-shell-widget-transfer-up"></div>'
-      +             '<div class="moyene-shell-widget-transfer-tabView moyene-shell-widget-bg">'
+      +             '<div class="moyene-shell-widget-transfer-tabView moyene-glass">'
       +               '<div class="moyene-shell-widget-transfer-overview moyene-active">'
       +                   '<p class="diskspace-title "><i class="fa fa-hdd"></i> Armazenamento</p>'
      

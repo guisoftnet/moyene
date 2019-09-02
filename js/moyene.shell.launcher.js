@@ -225,7 +225,7 @@ moyene.shell.launcher = (function () {
       
       ,
       main_html : String()
-      + ' <div class="moyene-shell-launcher-container">'
+      + ' <div class="moyene-shell-launcher-container moyene-glass">'
       + '   <div class="moyene-shell-launcher-header">'
       + '     <a class="profile">'
       + '       <img class="launcher-user-img" src="/assets/themify-icons/SVG/user.svg" alt="">'
@@ -379,7 +379,7 @@ onLaunchtabHover = function( event ) {
     if ($(this).hasClass('exit')) {
       jqueryMap.$launch_body.html($(configMap.leave_html).hide());
       $app = jqueryMap.$launch_body.find('.moyene-shell-launcher-tabview-leave');
-      $app.show('slow'); 
+      $app.show('fast'); 
 
     } 
 

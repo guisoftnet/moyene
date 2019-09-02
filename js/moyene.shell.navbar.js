@@ -15,7 +15,7 @@ moyene.shell.navbar = (function () {
     
       configMap = {
         logout_html : String() 
-        + '<div id="myNav" class="overlay">'        
+        + '<div id="myNav" class="overlay moyene-glass">'        
         + '   <a href="javascript:void(0)" id="closeview" class="closebtn" >&times;</a>'
         + '   <div class="overlay-content">'
         + '       <div class="w-100 logout-user">'
@@ -47,7 +47,7 @@ moyene.shell.navbar = (function () {
 
         ,
         main_html : String()
-        + '<div class="moyene-shell-nav context-menu-navbar">'
+        + '<div class="moyene-shell-nav context-menu-navbar moyene-glass">'
         +   '<div id="moyene_shell-nav_logo">'
         +     '<h3>moyene</h3>'
         +   '</div>'
@@ -59,7 +59,7 @@ moyene.shell.navbar = (function () {
         +     '<a  class="icon" href="javascript:void(0)" role="button" id="dropdownMessage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'
         +       '<i class="fa fa-envelope"></i>'
         +     '</a>'
-        + '   <div class="dropdown-menu" aria-labelledby="dropdownMessage">'
+        + '   <div class="dropdown-menu moyene-glass" aria-labelledby="dropdownMessage">'
         + '   <div class="moyene-notification-container">'
         + '     <h6 class="dropdown-header text-center">Mensagem</h6>'
         + '   </div>'
@@ -71,7 +71,7 @@ moyene.shell.navbar = (function () {
         +     '<a   class="icon" href="javascript:void(0)" role="button" id="dropdownPhone" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'
         +       '<i class="fa fa-phone"></i>'
         +     '</a>'
-        + '   <div class="dropdown-menu" aria-labelledby="dropdownPhone">'
+        + '   <div class="dropdown-menu moyene-glass" aria-labelledby="dropdownPhone">'
         + '   <div class="moyene-notification-container">'
 
         + '     <h6 class="dropdown-header text-center">Chamadas</h6>'   
@@ -83,7 +83,7 @@ moyene.shell.navbar = (function () {
         +     '<a   class="icon " href="javascript:void(0)" role="button" id="dropdownNotification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'
         +       '<i class="fa fa-bell"></i>'
         +     '</a>'
-        + '   <div class="dropdown-menu" aria-labelledby="dropdownNotification">'
+        + '   <div class="dropdown-menu moyene-glass" aria-labelledby="dropdownNotification">'
         + '   <div class="moyene-notification-container">'
         + '     <h6 class="dropdown-header text-center">Notificação</h6>'
         + '   </div>'
@@ -94,7 +94,7 @@ moyene.shell.navbar = (function () {
         +     '<a   class="icon " href="javascript:void(0)" role="button" id="" data-toggle="" aria-haspopup="true" aria-expanded="false">'
         +       '<i class="fa fa-cog"></i>'
         +     '</a>'
-        + '   <div class="dropdown-menu" aria-labelledby="">'
+        + '   <div class="dropdown-menu moyene-glass" aria-labelledby="">'
         + '     <h6 class="dropdown-header text-center">Definições</h6>'
         + '     <a class="dropdown-item" href="javascript:void(0)">'
         + '     <p class=""><img src="/assets/themify-icons/SVG/close.svg"/> Ambiente de trabalho</p>'
