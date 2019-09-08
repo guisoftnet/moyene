@@ -57,7 +57,7 @@
   -webkit-border-radius: 2px 2px 0 0;
   -moz-border-radius: 2px 2px 0 0;
   border-radius: 2px 2px 0 0;
-  background: #DCE2E9;
+  /* background: #DCE2E9; */
   -webkit-box-shadow: inset 0 1px 0 rbga(255, 255, 255, .5);
   -moz-box-shadow: inset 0 1px 0 rbga(255, 255, 255, .5);
   box-shadow: inset 0 1px 0 rbga(255, 255, 255, .5);
@@ -131,9 +131,9 @@
 }
 
 .moyene-shell-window-body {
-  border-top: 1px solid #CCC;
+  border-top: 1px solid rgba(0, 0, 0, 0.4);
   position: absolute;
-  background: #e9e9e9;
+  /* background: #e9e9e9; */
   top: 29px;
   width: 100%;
   height: 100%;

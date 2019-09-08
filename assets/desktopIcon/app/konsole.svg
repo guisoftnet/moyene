@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="64"
+   width="64"
+   version="1"
+   id="svg12"
+   sodipodi:docname="konsole.svg"
+   inkscape:version="0.92.2 2405546, 2018-03-11">
+  <metadata
+     id="metadata18">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs16" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview14"
+     showgrid="false"
+     inkscape:zoom="3.6875"
+     inkscape:cx="32"
+     inkscape:cy="32"
+     inkscape:window-x="1100"
+     inkscape:window-y="214"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg12" />
+  <path
+     style="opacity:.2"
+     d="m4 53v1c0 1.662 1.338 3 3 3h50c1.662 0 3-1.338 3-3v-1c0 1.662-1.338 3-3 3h-50c-1.662 0-3-1.338-3-3z"
+     id="path2" />
+  <rect
+     style="fill:#4f4f4f"
+     rx="3"
+     ry="3"
+     height="48"
+     width="56"
+     y="8"
+     x="4"
+     id="rect4" />
+  <path
+     style="opacity:.1;fill:#ffffff"
+     d="m7 8c-1.662 0-3 1.338-3 3v1c0-1.662 1.338-3 3-3h50c1.662 0 3 1.338 3 3v-1c0-1.662-1.338-3-3-3h-50z"
+     id="path6" />
+  <path
+     style="opacity:.2"
+     d="m12 15v2h-1c-1.662 0-3 1.338-3 3s1.338 3 3 3h1v2h-3.8164c0.412 1.164 1.508 2 2.8164 2h1v2h2v-2h1c1.662 0 3-1.338 3-3s-1.338-3-3-3h-1v-2h3.8164c-0.412-1.164-1.508-2-2.816-2h-1v-2h-2zm-1 4h1v2h-1c-0.554 0-1-0.446-1-1s0.446-1 1-1zm3 4h1c0.554 0 1 0.446 1 1s-0.4466 1.0257-1 1h-1zm8 4v2h12v-2z"
+     id="path8" />
+  <path
+     style="fill:#80b3ff"
+     d="m12 14v2h-1c-1.662 0-3 1.338-3 3s1.338 3 3 3h1v2h-3.8164c0.412 1.164 1.508 2 2.8164 2h1v2h2v-2h1c1.662 0 3-1.338 3-3s-1.338-3-3-3h-1v-2h3.8164c-0.412-1.164-1.508-2-2.816-2h-1v-2h-2zm-1 4h1v2h-1c-0.554 0-1-0.446-1-1s0.446-1 1-1zm3 4h1c0.554 0 1 0.446 1 1s-0.4466 1.0257-1 1h-1zm8 4v2h12v-2z"
+     id="path10" />
+</svg>
