@@ -79,7 +79,7 @@
 
 
 .moyene-list-group-item {
-  height: 42px;
+  min-height: 42px;
   padding: 2px 10px;
   margin-bottom: 5px;
 } 
@@ -191,5 +191,10 @@
   overflow: auto;
 }
 /* fim launch body */
+
+
+.aplication-category {
+  margin-top: 15px;
+}
   
   /* fim moyene launch */  

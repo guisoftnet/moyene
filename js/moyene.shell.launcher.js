@@ -43,64 +43,73 @@ moyene.shell.launcher = (function () {
       + '   </li>'
       + '</ul>'
       + ''
-
       + ''
       + '</div>'
       
       ,
       application_html: String()
       + '<div class="moyene-shell-launcher-tabview-application ">'
-      + ' <span class="text-white">Aplicacoes</span>'
-      + ' <ul class="moyene-list-group list-group-">'
+      + ' <span class="label-launcher text-white">Aplicacoes</span>'
+      + ' <ul class="moyene-list-group list-group">'
       + '   <li class="moyene-list-group-item"> <img src="/assets/desktopIcon/launcher/aplication/desenvolvimento.svg"/> '
       + '     <div>'
       + '       <span class="app-description">Desenvolvimento</span>'
       + '     </div>'
+      + '     <br>'      
       + '   </li>'
       + '   <li class="moyene-list-group-item"> <img src="/assets/desktopIcon/launcher/aplication/educacao.svg"/> '
       + '     <div>'
       + '       <span class="app-description">Educaçao</span>'
       + '     </div>'
+      + '     <br>'      
       + '   </li>'
       + '   <li class="moyene-list-group-item"> <img src="/assets/desktopIcon/launcher/aplication/graphic.svg"/> '
       + '     <div>'
       + '       <span class="app-description">Grafico</span>'
       + '     </div>'
+      + '     <br>'      
       + '   </li>'
       + '   <li class="moyene-list-group-item"> <img src="/assets/desktopIcon/launcher/aplication/internet.svg"/> '
       + '     <div>'
       + '       <span class="app-description">Internet</span>'
       + '     </div>'
+      + '     <br>'      
       + '   </li>'
       + '   <li class="moyene-list-group-item"> <img src="/assets/desktopIcon/launcher/aplication/multimedia.svg"/> '
       + '     <div>'
       + '       <span class="app-description">Multimidia</span>'
       + '     </div>'
+      + '     <br>'      
       + '   </li>'
       + '   <li class="moyene-list-group-item"> <img src="/assets/desktopIcon/launcher/aplication/office.svg"/> '
       + '     <div>'
       + '       <span class="app-description">Office</span>'
       + '     </div>'
+      + '     <br>'      
       + '   </li>'
       + '   <li class="moyene-list-group-item"> <img src="/assets/desktopIcon/launcher/aplication/settings.svg"/> '
       + '     <div>'
       + '       <span class="app-description">Definições</span>'
       + '     </div>'
+      + '     <br>'      
       + '   </li>' 
       + '   <li class="moyene-list-group-item"> <img src="/assets/desktopIcon/launcher/aplication/system.svg"/> '
       + '     <div>'
       + '       <span class="app-description">Sistema</span>'
       + '     </div>'
+      + '     <br>'      
       + '   </li>'           
       + '   <li class="moyene-list-group-item"> <img src="/assets/desktopIcon/launcher/aplication/toolbox.svg"/> '
       + '     <div>'
       + '       <span class="app-description">Utilitario</span>'
       + '     </div>'
+      + '     <br>'      
       + '   </li>'   
       + '   <li class="moyene-list-group-item"> <img src="/assets/desktopIcon/launcher/aplication/other.svg"/> '
       + '     <div>'
       + '       <span class="app-description">Outros</span>'
       + '     </div>'
+      + '     <br>'      
       + '   </li>'                 
       + '</ul>'
       + ''
@@ -109,6 +118,29 @@ moyene.shell.launcher = (function () {
       + '</div>'
       
       ,
+      application_container_html: String()
+      + ' <ul class="aplication-category list-group">'
+      + '   <li class="moyene-list-group-item"> <img src="/assets/desktopIcon/app/konsole.svg"/> '
+      + '     <div>'
+      + '       <span class="app-description">Terminal</span>'
+      + '       <span class="app-name">konsole</span>'
+      + '     </div>'
+      + '   </li>'
+      + '   <li class="moyene-list-group-item"> <img src="/assets/desktopIcon/app/ms-word.svg"/> '
+      + '     <div>'
+      + '       <span class="app-description">ms-word</span>'
+      + '       <span class="app-name">editor de documentos</span>'
+      + '     </div>'
+      + '   </li>'
+      + '   <li class="moyene-list-group-item"> <img src="/assets/desktopIcon/app/telegram.svg"/> '
+      + '     <div>'
+      + '       <span class="app-description">telegram</span>'
+      + '       <span class="app-name">rede social</span>'
+      + '     </div>'
+      + '   </li>'
+      + '</ul>'
+      ,
+
 
       home_html: String()
       + '<div class="moyene-shell-launcher-tabview-home">'
@@ -393,7 +425,8 @@ moyene.shell.launcher = (function () {
       $tabicons : $container.find('.moyene-shell-launcher-tab')
 
     };
-  };
+  };  
+
   // fim metodo DOM  /setJqueryMap/
 
   
@@ -407,6 +440,7 @@ moyene.shell.launcher = (function () {
   // Retorno : 
   // Excecao : 
   //
+  //#TODO: toggle ==>  showLauncher
   toggle = function() {
     $container = jqueryMap.$container;
     if ( $container.is(":visible") ) {
@@ -418,6 +452,14 @@ moyene.shell.launcher = (function () {
     }
   }
   // fim metodo publico  /showLauncher/
+
+
+  // // inicio metodo publico  /showLauncher/
+  // show_aplication_category = function () { 
+    
+  //  }
+  // fim metodo publico  /showLauncher/
+
 
   //---------------------- FIM METODO DOM ---------------------
 
@@ -431,7 +473,8 @@ moyene.shell.launcher = (function () {
 // Excecao : nenhum
 //
 onLaunchtabHover = function( event ) {
-  
+  var $tab_active, $tab_hover, $app;
+
   $tab_active = jqueryMap.$tabicons.find('.launch-tab-active');
   $tab_hover = $(this).find('.launch-tab-active');
 
@@ -447,6 +490,13 @@ onLaunchtabHover = function( event ) {
     if ($(this).hasClass('application')) {
       jqueryMap.$launch_body.html($(configMap.application_html).hide());
       $app = jqueryMap.$launch_body.find('.moyene-shell-launcher-tabview-application');
+      $list = $app.find('.moyene-list-group-item');
+      $list.append($(configMap.application_container_html).hide())
+      $app.find('.moyene-list-group-item').on('click', event => {
+        $(event.currentTarget).find('ul').toggle();
+        console.log("ok")
+      });
+      
       $app.show('fast'); 
     } else
     if ($(this).hasClass('home')) {
