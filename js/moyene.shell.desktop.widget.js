@@ -271,8 +271,6 @@ _context_menu = function (){
 $.contextMenu({
     selector: '.context-menu-widget', 
     callback: function(key, options) {
-        var m = "clicked: " + key;
-        window.console && console.log(m) || alert(m); 
     },
     items: {
         "config": {name: "Configurar", icon: "settings"},

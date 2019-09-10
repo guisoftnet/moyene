@@ -35,7 +35,6 @@ moyene.model = (function () {
           return this.cid === stateMap.user.cid;
         },
       get_is_anon: function () { 
-          console.log(stateMap)
            return this.cid === stateMap.anon_user.cid;
         }
   }   

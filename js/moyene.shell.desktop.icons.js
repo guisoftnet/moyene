@@ -131,7 +131,6 @@ moyene.shell.desktop.icons = (function () {
               default:
                 break;
             }
-            console.log(options)
         },
         items: {
     

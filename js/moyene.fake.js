@@ -197,7 +197,6 @@ instanceStorageList = [
 
     on_sio = function ( msg_type, callback ) {
       callback_map[ msg_type ] = callback;
-      console.log(callback_map);
     }
     emit_sio = function( msg_type, data ) {
       var user_map;

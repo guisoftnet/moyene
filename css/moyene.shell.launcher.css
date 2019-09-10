@@ -93,6 +93,7 @@
   float: left;
   width: 30px;
   margin-right: 20px;
+  margin-top: 4px;
 } 
 
 .moyene-list-group-item div {
@@ -193,8 +194,12 @@
 /* fim launch body */
 
 
-.aplication-category {
+.app-category {
   margin-top: 15px;
+}
+
+.app-category-active {
+  background: rgba(0, 0, 0, 0.5);
 }
   
   /* fim moyene launch */  

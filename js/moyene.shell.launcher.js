@@ -119,7 +119,7 @@ moyene.shell.launcher = (function () {
       
       ,
       application_container_html: String()
-      + ' <ul class="aplication-category list-group">'
+      + ' <ul class="app-category list-group">'
       + '   <li class="moyene-list-group-item"> <img src="/assets/desktopIcon/app/konsole.svg"/> '
       + '     <div>'
       + '       <span class="app-description">Terminal</span>'
@@ -403,7 +403,7 @@ moyene.shell.launcher = (function () {
       $container: null
     },
     jqueryMap = {},
-    setJqueryMap, configModule, initModule, toggle, onLaunchtabHover;
+    setJqueryMap, configModule, initModule, toggle, onLaunchtabHover, open, close;
   //----------------- FIM MODULO ESCOPO VARIAVEL ---------------
 
   //------------------- INICIO METODOS UTILITARIO ------------------
@@ -453,6 +453,27 @@ moyene.shell.launcher = (function () {
   }
   // fim metodo publico  /showLauncher/
 
+  //  inicio metodo publico  /open/
+  open = function() {
+    var $container;
+    
+    $container = jqueryMap.$container;
+    $container.show();
+    jqueryMap.$input_search.focus();
+  }  
+  //  fim metodo publico  /open/
+
+  
+  //  inicio metodo publico  /open/
+  close = function() {
+    var $container;
+    
+    $container = jqueryMap.$container;
+    $container.hide();
+  }  
+  //  fim metodo publico  /open/
+
+
 
   // // inicio metodo publico  /showLauncher/
   // show_aplication_category = function () { 
@@ -493,8 +514,11 @@ onLaunchtabHover = function( event ) {
       $list = $app.find('.moyene-list-group-item');
       $list.append($(configMap.application_container_html).hide())
       $app.find('.moyene-list-group-item').on('click', event => {
-        $(event.currentTarget).find('ul').toggle();
-        console.log("ok")
+        var $target = $(event.currentTarget);
+        $target.find('ul').toggle();
+        $target.hasClass('app-category-active') === true ? 
+        $target.removeClass('app-category-active') :
+        $target.addClass('app-category-active') ;
       });
       
       $app.show('fast'); 
@@ -586,8 +610,10 @@ onLogin = function() {
 
   // retornar metodos publicos
   return {
-    configModule  : configModule,
     toggle  : toggle,
+    open    : open,
+    close   : close,
+    configModule  : configModule,
     initModule    : initModule
   };
   //-------------------  FIM METODOS PUBLICOS ---------------------

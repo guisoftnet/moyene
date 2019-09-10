@@ -64,9 +64,7 @@ $.contextMenu({
     selector: '.context-menu-desktop', 
     zIndex: 10,
     callback: function(key, options) {
-        var m = "clicked: " + key;
-        window.console && console.log(m) || alert(m); 
-    },
+       },
     items: {
         "new": {name: "Criar Novo", "items": {
           "folder": {name: "Directorio", icon: "folder"},

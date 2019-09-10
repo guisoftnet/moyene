@@ -171,7 +171,6 @@ moyene.shell.navbar = (function () {
         selector: '.context-menu-navbar', 
         callback: function(key, options) {
             var m = "clicked: " + key;
-            window.console && console.log(m) || alert(m); 
         },
         items: {    
             "config": {name: "configurar"},
@@ -354,7 +353,6 @@ moyene.shell.navbar = (function () {
         if ( notification_map ) {
           if (Array.isArray(notification_map)) {
             notification_map.forEach(function (notification) { 
-              console.log(notification);
               call = notification.call ? notification.call : null;
               notification_item =  _create_notification_item(notification.title, notification.message, notification.timestamp, notification.type, call);
               _push_notification(notification_item);

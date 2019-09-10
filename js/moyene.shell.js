@@ -122,8 +122,9 @@ moyene.shell = (function () {
 
     $.gevent.subscribe($container, 'moyene-toggle-launcher',   function (event, param) {
        moyene.shell.launcher.toggle()
-      } )
-
+    });
+   
+    
     return true;
   };
   // fim metodo publico /inicModulo/

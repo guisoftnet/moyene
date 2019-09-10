@@ -16,7 +16,7 @@ moyene.shell.windows = (function () {
   
     configMap = {
       main_html : String()
-      + '<div class="moyene-shell-window-outer">'
+      + '<div class="moyene-shell-window-outer moyene-glass">'
       + '   <div class="moyene-shell-window-inner">'
       + '     <div class="moyene-shell-window-content">'
       + '       <div class="moyene-shell-window-titlebar">'
