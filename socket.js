@@ -14,14 +14,17 @@ white : true
 'use strict';
 var 
     countUp,
-    http        = require ( 'http' ),
-    express     = require( 'express' ),
+    setWatch,
+    http        = require ( 'http'     ),
+    express     = require( 'express'   ),
     socketIo    = require( 'socket.io' ),
+    fsHandle    = require('fs'         ),
 
     app         = express(),
     server      = http.createServer( app ),
     io          = socketIo.listen(server),
-    countIdx    = 0
+    countIdx    = 0,
+    watchMap    = {}
     ;
 
 
@@ -34,10 +37,38 @@ countUp = function () {
     console.log( countIdx );
     io.sockets.send( countIdx );
 };
+
+setWatch = function ( url_path, file_type ) {
+    console.log( 'setWatch em ' + url_path );
+
+    if ( ! watchMap [url_path ] ) {
+        console.log( 'definido watch em ' + url_path );
+        
+        fsHandle.watchFile(
+            url_path.slice(1),
+            function ( current, previous ) {
+
+                console.log( 'ficheiro acessado' );
+                if ( current.mtime !== previous.mtime ) {
+                    console.log( 'ficheiro alterado ' );
+                    io.sockets.emit( file_type, url_path );
+                }
+            }
+        );
+        watchMap[ url_path ] = true;
+    }
+};
 // ---------------- END UTILITY METHODS -------------------
 
 // ------------- BEGIN SERVER CONFIGURATION ---------------
-
+app.use( function ( request, response, next ){
+    if ( request.url.indexOf( '/js/' ) >= 0 ) {
+        setWatch( request.url, 'script' );
+    } else if ( request.url.indexOf( '/css/' ) >= 0) {
+        setWatch( request.url, 'stylesheet' );        
+    }
+    next();
+});
 app.use( express.static( __dirname + '/' ) );
 app.get( '/', function ( request, response ) {
     response.redirect( '/socket.html' );
@@ -50,5 +81,4 @@ console.log(
     'Express server listening on port %d in %s mode',
     server.address().port, app.settings.env
 );
-setInterval( countUp, 1000 );
 // ------------------ END START SERVER --------------------
