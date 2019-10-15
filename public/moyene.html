@@ -71,7 +71,19 @@
     <script type="text/javascript">
 
         $(document).ready(function(){
-            $(function() { moyene.initModule(  $('#moyene' )  ) ; } );
+            $(function() {
+                try {
+                    moyene.initModule(  $('#moyene' )  ) ;                     
+                } catch (error) {
+                    console.log('Ocorreu um erro ');
+                    console.log(error);
+                }
+            } );
+
+            window.error = function ( error ) {
+                console.log('async')
+                console.log(error)
+            }
         });
     </script>
 </head>

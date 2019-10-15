@@ -13,11 +13,12 @@ white : true
 // ------------ BEGIN MODULE SCOPE VARIABLES --------------
 'use strict';
 var
-    http = require( 'http' ),
-    express = require( 'express' ),
-    body_parser = require('body-parser'),
+    http            = require( 'http' ),
+    express         = require( 'express' ),
+    body_parser     = require('body-parser'),
     method_override = require('method-override'),
-    routes = require('./routes'),
+    routes          = require('./lib/routes'),
+    crud            = require('./lib/crud'),
     app = express(),
     server = http.createServer( app ),
     dev_enviroment;
