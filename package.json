@@ -21,10 +21,12 @@
     "debug": "^4.1.1",
     "error-handler": "^1.0.x",
     "express": "^4.17.x",
+    "hyperdrive": "^10.3.2",
     "logger": "0.0.x",
     "method-override": "^3.0.x",
     "mongodb": "^3.3.x",
     "redis": "^2.8.0",
+    "scoped-fs": "^1.4.1",
     "socket.io": "^2.3.0"
   }
 }

@@ -21,6 +21,8 @@ moyene.shell = (function () {
         + '</div>'
         + '<div id="moyene_shell_block_topnav">'
         + '</div>'
+        + '<div id="moyene_shell_block_signup" class="start-center moyene-ui-draggable">'
+        + '</div>'
         + '<div id="moyene_shell_block_taskbar">'
         + '</div>'
         + '<div class="moyene-shell-window start-center moyene-ui-draggable moyene-window-hide">'
@@ -49,7 +51,8 @@ moyene.shell = (function () {
       $desktop : $container.find('#moyene_shell_block_desktop'),
       $taskbar : $container.find('#moyene_shell_block_taskbar'),
       $windows   : $container.find('.moyene-shell-window'),
-      $launcher   : $container.find('.moyene-shell-launcher')
+      $launcher   : $container.find('.moyene-shell-launcher'),
+      $signup   : $container.find('#moyene_shell_block_login')
 
 
     };
@@ -118,6 +121,10 @@ moyene.shell = (function () {
     
     moyene.shell.launcher.configModule( {} );
     moyene.shell.launcher.initModule( jqueryMap.$launcher );
+    
+    moyene.shell.signup.configModule( {} );
+    moyene.shell.signup.initModule( jqueryMap.$signup );
+
 
 
     $.gevent.subscribe($container, 'moyene-toggle-launcher',   function (event, param) {
