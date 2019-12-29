@@ -1,12 +1,14 @@
 /* inicio moyene window  */
 .moyene-shell-window {
   position: absolute;
-  width: 970px;
-  height: 550px;
-  left: 35.5px;
-  top: 50px;
+  width: 630px;
+  height: 470px;
   display: block;
   /* z-index: 20; */
+/* 
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%); */
 
 }
 
@@ -168,5 +170,14 @@
 .moyene-window-show {
   display: block;
 }
+
+
+/* conteudo html do windows manager */
+.moyene-shell-window-container {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+/* fim conteudo html do windows manager */
 
 /* fim moyene window */

@@ -16,6 +16,7 @@ moyene.shell.windows = (function () {
   
     configMap = {
       main_html : String()
+      + '<div class="moyene-shell-window">'
       + '<div class="moyene-shell-window-outer moyene-glass">'
       + '   <div class="moyene-shell-window-inner">'
       + '     <div class="moyene-shell-window-content">'
@@ -40,6 +41,7 @@ moyene.shell.windows = (function () {
       + '     </div>'
       + '   </div>'
       + ' </div>'
+      + '</div>'
 
     },
     stateMap = {
@@ -47,12 +49,15 @@ moyene.shell.windows = (function () {
     },
     jqueryMap = {},
     setJqueryMap, configModule, initModule, onCreate, onDestroy, onOpen, 
-    onClose, onMinimize, onMaximize, isHidden, show
+    onClose, close, onMinimize, onMaximize, isHidden, show, _randomInt
     ;
   //----------------- FIM MODULO ESCOPO VARIAVEL ---------------
-
+    _randomInt = function() {
+      return (Math.round(Math.random() * 9999 ) % 9999).toString();
+    }
   //------------------- INICIO METODOS UTILITARIO ------------------
 
+  
   //-------------------- FIM METODOS UTILITARIO -------------------
 
   //--------------------- INICIO METODO DOM  --------------------
@@ -67,7 +72,10 @@ moyene.shell.windows = (function () {
       $btnClose: $container.find('.action-button.close'),
       $btnMaximize: $container.find('.action-button.maximize '),
       $btnMinimize: $container.find('.action-button.minimize'),
-      $titlebar:    $container.find('.moyene-shell-window-titlebar')
+      $titlebar:    $container.find('.moyene-shell-window-titlebar'),
+      $content:     $container.find('.moyene-shell-window-container'),
+      $windows: $container.find('.moyene-shell-window')
+
     };
   };
 
@@ -93,10 +101,14 @@ moyene.shell.windows = (function () {
   //
   open = function () {
     if (isHidden()) { jqueryMap.$container.removeClass('moyene-window-hide'); return true;} 
+    
      return false;
   }
   // fim metodo DOM  /open/
 
+  close = function() {
+    jqueryMap.$windows.remove();// addClass('moyene-window-hide');
+  }
   //---------------------- FIM METODO DOM ---------------------
 
   //------------------- INICIO MANIPULADOR EVENTO -------------------
@@ -111,6 +123,9 @@ moyene.shell.windows = (function () {
   // Excecao : nenhuma
   //
   onCreate = function( event, app) {
+
+        jqueryMap.$content.html(app.container)
+
     open();
     return false;
   }
@@ -121,7 +136,7 @@ moyene.shell.windows = (function () {
 
   onClose = function(event) {
     if ( !isHidden() ) {
-      jqueryMap.$container.addClass('moyene-window-hide');
+      close();
      } 
 
    return false;
@@ -134,7 +149,7 @@ moyene.shell.windows = (function () {
   onMinimize = function(event) {
       
     if ( !isHidden() ) {
-      jqueryMap.$container.addClass('moyene-window-hide');
+      jqueryMap.$windows.addClass('moyene-window-hide');
      } 
 
    return false;
@@ -175,6 +190,8 @@ moyene.shell.windows = (function () {
       settable_map: configMap.settable_map,
       config_map: configMap
     });
+
+
     return true;
   };
   // fim metodo publico /configModulo/
@@ -188,15 +205,17 @@ moyene.shell.windows = (function () {
   //
   initModule = function ($container) {
     stateMap.$container = $container;
-    $container.html( configMap.main_html );
+    $container.append( configMap.main_html );
     setJqueryMap();
+
+    jqueryMap.$windows[0].id="windows_" + _randomInt();
 
     // anexar eventos da janela
     jqueryMap.$btnMinimize.click(onMinimize);
     jqueryMap.$btnMaximize.click(onMaximize);
     jqueryMap.$titlebar.dblclick(onMaximize);
-    moyene.util_b.dragElement(jqueryMap.$container.get(0));
     jqueryMap.$btnClose.click(onClose);
+    jqueryMap.$windows.draggable();
 
 
     // executar eventos enviados a janela
@@ -204,6 +223,11 @@ moyene.shell.windows = (function () {
       'moyene-create-window',
       onCreate
     )
+
+    $.gevent.subscribe($('#moyene'),
+    'moyene-close-window',
+    close
+  )
     return true;
   };
   // fim metodo publico /inicModulo/
